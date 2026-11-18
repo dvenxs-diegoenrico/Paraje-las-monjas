@@ -56,7 +56,7 @@ export function IconList({ items, cols = 2 }: { items: string[]; cols?: 1 | 2 })
 /* ------------------------------------------------------------ documented facts as cards */
 export function FactCards({ facts, dark = false }: { facts: Content['facts']; dark?: boolean }) {
   return (
-    <ul data-observe="" className="stagger grid grid-cols-2 gap-px overflow-hidden bg-cantera/40 md:grid-cols-3 lg:grid-cols-5">
+    <ul data-observe="" className="stagger grid grid-cols-2 gap-px overflow-hidden bg-cantera/40 md:grid-cols-3 lg:grid-cols-5 [&>li:last-child]:col-span-2 md:[&>li:last-child]:col-span-1">
       {facts.map((f) => (
         <li key={f.k} className={`group flex flex-col gap-4 p-5 lg:p-6 ${dark ? 'bg-piedra' : 'bg-cal'}`}>
           <span className={`grid h-12 w-12 place-items-center rounded-full ${dark ? 'bg-cal/10 text-cal' : 'bg-cal-claro text-fronda'}`}>

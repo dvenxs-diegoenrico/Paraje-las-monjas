@@ -23,6 +23,9 @@ pnpm test:e2e                 # Playwright smoke + axe (starts `pnpm start` on :
 | **The subject breaks out.** El Arbolado's tree crowns are cut from the sky (`*-recorte.png`) and rise out of the arch over the headline. | `scripts/process_photos.py` makes the cut-out; `Hero.tsx` masks it so only the main crown escapes through the top of the arch |
 | **Scallops.** Every crop, button and section hem shares one bump language. | `lib/scallop.ts` (SVG geometry → CSS masks), `.scallop-x` / `.scallop-top` utilities in `app/globals.css`, `components/base/Valance.tsx` |
 | **Quiet motion.** Curtain-lift reveals, 8 s settle on hero images, slow parallax between planes, a seal that turns once a minute, growing underlines. Only `transform`/`opacity`. All of it turns off with `prefers-reduced-motion`. | `components/motion/*`, keyframes in `globals.css` |
+| **Icons that draw themselves.** ~40 custom line icons (24 px grid, 1.25 px stroke). They draw on scroll and get a small idle motion on hover (leaves sway, soup steams, the flame flickers). | `components/base/Icon.tsx`, motion rules at the end of `globals.css`, one shared observer in `components/motion/InViewObserver.tsx` |
+| **Explain with graphics.** Four-spaces diagram, guest-dot capacity scale (● = 10 guests), documented-facts cards, how-it-works timeline, inclusion icons on every package. | `components/content/Graphics.tsx`, `ScaleTabs.tsx`, `OfferCard.tsx` |
+| **Textures.** Dappled light drifting over the hero lawn, film grain on dark sections, floating motes, and a catarina that walks across the hero and the footer. | `.dapple`, `.grain`, `.motes`, `.walker` in `globals.css` |
 | **Tokens only.** Cal, Piedra, Fronda, Tabique, Catarina, Viga, Cantera, Cal claro. No gold, no lime, no pure black/white. | `app/globals.css` (`:root` + `@theme`), mirrored in `lib/tokens.ts` |
 
 Tailwind 4 has no `tailwind.config.ts`; tokens are declared with `@theme` in `app/globals.css` and used as `bg-cal`, `text-fronda`, etc.
@@ -63,6 +66,11 @@ The structure is CMS-ready: each page component receives a typed `Content` objec
 3. If it is a new image, add an entry to `lib/images.ts` (alt text ES/EN, caption, chapter, optional focal point).
 
 `next/image` serves AVIF/WebP at the right size. The hero cut-out (`jardin-arboles-1-recorte.png`) is generated automatically from the sky; if the new hero photo has no clear sky, the cut-out needs a manual mask.
+
+### Photo quality: what was done and what was not
+
+- Every photo is upscaled 2× with **EDSR super-resolution** (`scripts/upscale_photo.py`, output in `_incoming/hd/`). It sharpens what is in the photo; it does not invent content.
+- **Canva AI was tried and rejected for venue photos.** Asked to re-render the El Arbolado photo “exactly as it is”, it reshaped and moved the trees, changed the treeline and added a heavy HDR look. A picture like that would show a garden that does not exist, so it is not used. Use AI only for clearly illustrative material, never as a photo of the venue.
 
 ### TODO · slots waiting for final photography
 
