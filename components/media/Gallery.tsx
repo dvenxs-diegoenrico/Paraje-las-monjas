@@ -7,6 +7,9 @@ import * as m from 'motion/react-m';
 import type { Photo } from '@/lib/images';
 import type { Locale } from '@/lib/i18n';
 import { useFocusTrap } from '@/components/navigation/useFocusTrap';
+import { Icon, type IconName } from '@/components/base/Icon';
+
+const CHAPTER_ICON: Record<string, IconName> = { arquitectura: 'arco', jardines: 'arbol', mesa: 'mesa', noche: 'luna' };
 
 type Chapter = { id: string; name: string; intro: string; photos: Photo[]; masks: string[] };
 type Labels = { prev: string; next: string; close: string; openImage: string };
@@ -27,7 +30,12 @@ export function Gallery({ chapters, locale, labels }: { chapters: Chapter[]; loc
           <div className="container-lux">
             <hr className="junta mb-12" />
             <div className="grid-lux gap-y-4">
-              <p className="t-caption col-span-1 text-tabique lg:col-span-1">0{ci + 1}</p>
+              <div className="live col-span-1 flex flex-col items-start gap-2 text-tabique lg:col-span-1">
+                <span className="grid h-12 w-12 place-items-center rounded-full bg-cal-claro text-fronda">
+                  <Icon name={CHAPTER_ICON[ch.id] ?? 'camara'} size={26} />
+                </span>
+                <span className="t-caption">0{ci + 1}</span>
+              </div>
               <h2 id={`${ch.id}-t`} className="t-h2 col-span-3 md:col-span-4 lg:col-span-5">
                 {ch.name}
               </h2>

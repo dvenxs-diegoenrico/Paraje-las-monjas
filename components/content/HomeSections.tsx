@@ -4,12 +4,16 @@ import { TextLink } from '@/components/base/Button';
 import { Eyebrow } from '@/components/base/Typography';
 import { Valance } from '@/components/base/Valance';
 import { Mark } from '@/components/brand/Logo';
+import { Icon, type IconName } from '@/components/base/Icon';
+import { Motes, SpacesDiagram } from '@/components/content/Graphics';
 import { Drift } from '@/components/motion/Drift';
 import { Reveal, Unveil } from '@/components/motion/Reveal';
 import { ScallopImage, scallopStyle } from '@/components/media/ScallopImage';
 import { href, type Locale } from '@/lib/i18n';
 import { images, type ImageKey } from '@/lib/images';
 import type { Content } from '@/content';
+
+const MANIFESTO_ICONS: IconName[] = ['arco', 'ladrillo', 'pabellon', 'catarina', 'mesa', 'hoja'];
 
 /* ---------------------------------------------------------------- 2 */
 export function Manifesto({ c }: { c: Content['home']['manifesto'] }) {
@@ -25,8 +29,12 @@ export function Manifesto({ c }: { c: Content['home']['manifesto'] }) {
         </div>
         <div className="col-span-4 mt-10 md:col-span-8 lg:col-span-8 lg:col-start-4 lg:mt-0">
           {c.lines.map((line, i) => (
-            <Reveal key={i} delay={i * 0.12} duration={0.9} as="p" className={`t-h2 text-piedra ${i > 0 ? 'mt-6 lg:mt-8' : ''} ${i === c.lines.length - 1 ? 'italic text-fronda' : ''}`}>
-              {line}
+            <Reveal key={i} delay={i * 0.12} duration={0.9} className={`group relative ${i > 0 ? 'mt-6 lg:mt-8' : ''}`}>
+              {/* a drawn marginal note per line: brick, pavilion, tree, catarina, table, leaf */}
+              <span className="absolute -left-12 top-2 hidden text-tabique lg:block xl:-left-16">
+                <Icon name={MANIFESTO_ICONS[i % MANIFESTO_ICONS.length]} size={30} />
+              </span>
+              <p className={`t-h2 text-piedra ${i === c.lines.length - 1 ? 'italic text-fronda' : ''}`}>{line}</p>
             </Reveal>
           ))}
         </div>
@@ -36,7 +44,7 @@ export function Manifesto({ c }: { c: Content['home']['manifesto'] }) {
 }
 
 /* ---------------------------------------------------------------- 3 */
-export function SpacesShowcase({ locale, c, spaces }: { locale: Locale; c: Content['home']['lugar']; spaces: Content['spaces'] }) {
+export function SpacesShowcase({ locale, c, spaces, groups }: { locale: Locale; c: Content['home']['lugar']; spaces: Content['spaces']; groups: Content['spacesGroups'] }) {
   const [first, ...rest] = spaces;
   return (
     <section className="relative bg-cal pb-28 lg:pb-40" aria-labelledby="el-lugar">
@@ -44,7 +52,7 @@ export function SpacesShowcase({ locale, c, spaces }: { locale: Locale; c: Conte
         <div className="grid-lux items-end gap-y-6">
           <div className="col-span-4 md:col-span-6 lg:col-span-7">
             <Reveal>
-              <Eyebrow>{c.eyebrow}</Eyebrow>
+              <Eyebrow icon="arco">{c.eyebrow}</Eyebrow>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 id="el-lugar" className="t-h2 mt-6 max-w-[16ch]">
@@ -56,6 +64,10 @@ export function SpacesShowcase({ locale, c, spaces }: { locale: Locale; c: Conte
             <TextLink href={href(locale, 'lugar')}>{c.link}</TextLink>
           </div>
         </div>
+      </div>
+
+      <div className="container-lux mt-12">
+        <SpacesDiagram spaces={spaces} g={groups} base={href(locale, 'lugar')} />
       </div>
 
       {/* desktop: one large arch + three small; mobile: scroll-snap rail */}
@@ -110,7 +122,7 @@ export function EditorialTriptych({ locale, c }: { locale: Locale; c: Content['h
     <section className="relative bg-cal pb-28 lg:pb-44" aria-labelledby="editorial">
       <div className="container-lux">
         <Reveal>
-          <Eyebrow>{c.eyebrow}</Eyebrow>
+          <Eyebrow icon="camara">{c.eyebrow}</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
           <h2 id="editorial" className="t-h2 mt-6 max-w-[20ch]">
@@ -169,7 +181,7 @@ export function GalleryMosaic({ locale, c }: { locale: Locale; c: Content['home'
         <div className="grid-lux items-end gap-y-6">
           <div className="col-span-4 md:col-span-6 lg:col-span-8">
             <Reveal>
-              <Eyebrow>{c.eyebrow}</Eyebrow>
+              <Eyebrow icon="camara">{c.eyebrow}</Eyebrow>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 id="galeria-home" className="t-h2 mt-6">
@@ -197,15 +209,21 @@ export function GalleryMosaic({ locale, c }: { locale: Locale; c: Content['home'
 /* ---------------------------------------------------------------- 8 */
 export function Philosophy({ c }: { c: Content['home']['filosofia'] }) {
   return (
-    <section className="on-dark relative bg-piedra py-28 text-cal lg:py-44" aria-labelledby="filosofia">
+    <section className="on-dark grain relative overflow-hidden bg-piedra py-28 text-cal lg:py-44" aria-labelledby="filosofia">
       <Valance color="var(--piedra)" />
+      <Motes />
       <div className="container-lux grid-lux items-center gap-y-14">
         <Reveal className="col-span-2 md:col-span-3 lg:col-span-4 lg:col-start-2" duration={1.2}>
-          <Mark tone="light" className="w-full max-w-[340px]" />
+          <div className="live relative">
+            <Mark tone="light" className="w-full max-w-[340px]" />
+            <span className="absolute -right-2 top-[38%] text-catarina">
+              <Icon name="catarina" size={30} />
+            </span>
+          </div>
         </Reveal>
         <div className="col-span-4 md:col-span-5 lg:col-span-5 lg:col-start-7">
           <Reveal>
-            <Eyebrow tone="cantera">{c.eyebrow}</Eyebrow>
+            <Eyebrow tone="cantera" icon="hoja">{c.eyebrow}</Eyebrow>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 id="filosofia" className="t-display mt-6 italic">

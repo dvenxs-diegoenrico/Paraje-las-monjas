@@ -1,4 +1,8 @@
 import { formatPrice, priceFrom, type Content } from '@/content';
+import { Icon, type IconName } from '@/components/base/Icon';
+import { IconList, iconFor } from '@/components/content/Graphics';
+
+const OFFER_ICON: Record<string, IconName> = { 'renta-del-jardin': 'arbol', 'jardin-servido': 'plato', 'mesa-larga-ironico': 'mezcal', 'bodas-intimas': 'brindis', jornadas: 'cafe' };
 
 type Offer = Content['offers']['items'][number];
 
@@ -8,8 +12,13 @@ export function OfferCard({ offer, c, open = false, anchor, surface = 'claro' }:
   const shared = 'sharedIncludes' in offer ? offer.sharedIncludes : undefined;
   return (
     <article className={`relative scroll-mt-24 p-6 md:p-8 ${surface === 'cal' ? 'bg-cal' : 'bg-cal-claro'}`} id={anchor ? `paquete-${offer.id}` : undefined}>
-      <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <h3 className="font-serif text-[30px] leading-tight lg:text-[36px]">{offer.name}</h3>
+      <div className="group flex flex-wrap items-center justify-between gap-4">
+        <h3 className="flex items-center gap-4 font-serif text-[30px] leading-tight lg:text-[36px]">
+          <span className="live grid h-12 w-12 shrink-0 place-items-center rounded-full bg-fronda text-cal">
+            <Icon name={OFFER_ICON[offer.id] ?? 'hoja'} size={26} />
+          </span>
+          {offer.name}
+        </h3>
         <p className="t-data text-tabique">{priceFrom(c, min)}</p>
       </div>
       <p className="mt-3 text-piedra/85">{offer.tagline}</p>
@@ -27,6 +36,14 @@ export function OfferCard({ offer, c, open = false, anchor, surface = 'claro' }:
       <p className="t-caption mt-4 text-piedra/70">
         {offer.terms} · {c.pricesNote}
       </p>
+      {/* at-a-glance: what the package brings, as icons */}
+      <ul aria-hidden="true" data-observe="" className="stagger mt-5 flex flex-wrap gap-2">
+        {Array.from(new Set([...offer.variants.flatMap((v) => v.includes), ...(shared ?? [])].map(iconFor))).slice(0, 9).map((n) => (
+          <li key={n} className="group grid h-10 w-10 place-items-center rounded-full bg-cal text-fronda ring-1 ring-cantera/50">
+            <Icon name={n} size={20} />
+          </li>
+        ))}
+      </ul>
       <details className="group mt-6" open={open}>
         <summary className="t-nav flex min-h-[44px] cursor-pointer list-none items-center gap-3 [&::-webkit-details-marker]:hidden">
           <span aria-hidden="true" className="relative h-3 w-3">
@@ -41,25 +58,15 @@ export function OfferCard({ offer, c, open = false, anchor, surface = 'claro' }:
             .map((v) => (
               <div key={v.name} className="mt-4">
                 {offer.variants.length > 1 && <p className="t-caption text-tabique">{v.name}</p>}
-                <ul className="mt-2 grid gap-x-8 gap-y-1 md:grid-cols-2">
-                  {v.includes.map((it) => (
-                    <li key={it} className="flex gap-3 text-[15px] leading-snug">
-                      <span aria-hidden="true" className="mt-[0.6em] h-px w-3 shrink-0 bg-tabique" />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-3">
+                  <IconList items={v.includes} />
+                </div>
               </div>
             ))}
           {shared && (
-            <ul className="mt-2 grid gap-x-8 gap-y-1 md:grid-cols-2">
-              {shared.map((it) => (
-                <li key={it} className="flex gap-3 text-[15px] leading-snug">
-                  <span aria-hidden="true" className="mt-[0.6em] h-px w-3 shrink-0 bg-tabique" />
-                  {it}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-3">
+              <IconList items={shared} />
+            </div>
           )}
         </div>
       </details>

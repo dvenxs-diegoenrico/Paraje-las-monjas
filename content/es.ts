@@ -189,13 +189,26 @@ export const es = {
     },
   ],
   scalesFootnote: 'Capacidades por confirmar con la coordinación del jardín.',
+  howItWorks: {
+    eyebrow: 'Cómo funciona',
+    title: 'De la primera pregunta a la última mesa.',
+    steps: [
+      { icon: 'chat' as const, t: 'Escríbenos', d: 'Fecha tentativa, número de invitados y tipo de celebración. Por WhatsApp o con el formulario.' },
+      { icon: 'calendario' as const, t: 'Visita privada', d: 'Recorre el jardín entre semana o el sábado por la mañana, sin prisa.' },
+      { icon: 'mesa' as const, t: 'Elige tu paquete', d: 'Renta del jardín, jardín servido, mesa larga con mezcal o boda íntima.' },
+      { icon: 'brindis' as const, t: 'Celebra', d: 'Llegas a un jardín preparado con atención. Tú sólo recibes a los tuyos.' },
+    ],
+  },
+  spacesGroups: { roof: 'Bajo techo', open: 'Al aire libre', caption: 'Cuatro espacios que se recorren a pie.' },
+  dotsLegend: '= 10 invitados',
+
 
   facts: [
-    { k: 'Baños', v: '4 · dos de damas y dos de caballeros, con papel, jabón y toallas para manos' },
-    { k: 'Estacionamiento', v: 'Privado, con personal de vigilancia' },
-    { k: 'Cocina', v: 'Con gas y dos mesas de trabajo, tinas para enfriar (paquetes de renta)' },
-    { k: 'Servicio', v: '7 u 8 horas según paquete' },
-    { k: 'Mínimos', v: '50 invitados · bodas íntimas de 30 a 50 · jornadas desde 25' },
+    { icon: 'bano' as const, k: 'Baños', v: '4 · dos de damas y dos de caballeros, con papel, jabón y toallas para manos' },
+    { icon: 'auto' as const, k: 'Estacionamiento', v: 'Privado, con personal de vigilancia' },
+    { icon: 'flama' as const, k: 'Cocina', v: 'Con gas y dos mesas de trabajo, tinas para enfriar (paquetes de renta)' },
+    { icon: 'reloj' as const, k: 'Servicio', v: '7 u 8 horas según paquete' },
+    { icon: 'personas' as const, k: 'Mínimos', v: '50 invitados · bodas íntimas de 30 a 50 · jornadas desde 25' },
   ],
 
   offers: {

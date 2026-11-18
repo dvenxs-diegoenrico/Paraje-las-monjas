@@ -185,13 +185,26 @@ export const en: Content = {
     },
   ],
   scalesFootnote: 'Capacities to be confirmed with the garden’s coordination team.',
+  howItWorks: {
+    eyebrow: 'How it works',
+    title: 'From the first question to the last table.',
+    steps: [
+      { icon: 'chat' as const, t: 'Write to us', d: 'Tentative date, number of guests and type of celebration. On WhatsApp or with the form.' },
+      { icon: 'calendario' as const, t: 'Private visit', d: 'Walk the garden on a weekday or a Saturday morning, without hurry.' },
+      { icon: 'mesa' as const, t: 'Choose your package', d: 'Garden rental, garden served, long table with mezcal or intimate wedding.' },
+      { icon: 'brindis' as const, t: 'Celebrate', d: 'You arrive at a garden prepared with attention. You only welcome your people.' },
+    ],
+  },
+  spacesGroups: { roof: 'Under a roof', open: 'In the open air', caption: 'Four spaces you can walk between.' },
+  dotsLegend: '= 10 guests',
+
 
   facts: [
-    { k: 'Restrooms', v: '4 · two for women and two for men, with paper, soap and hand towels' },
-    { k: 'Parking', v: 'Private, with security staff' },
-    { k: 'Kitchen', v: 'With gas and two work tables, cooling tubs (rental packages)' },
-    { k: 'Service', v: '7 or 8 hours depending on the package' },
-    { k: 'Minimums', v: '50 guests · intimate weddings 30 to 50 · workdays from 25' },
+    { icon: 'bano' as const, k: 'Restrooms', v: '4 · two for women and two for men, with paper, soap and hand towels' },
+    { icon: 'auto' as const, k: 'Parking', v: 'Private, with security staff' },
+    { icon: 'flama' as const, k: 'Kitchen', v: 'With gas and two work tables, cooling tubs (rental packages)' },
+    { icon: 'reloj' as const, k: 'Service', v: '7 or 8 hours depending on the package' },
+    { icon: 'personas' as const, k: 'Minimums', v: '50 guests · intimate weddings 30 to 50 · workdays from 25' },
   ],
 
   offers: {

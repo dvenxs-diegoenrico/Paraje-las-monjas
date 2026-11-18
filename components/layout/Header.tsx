@@ -67,7 +67,9 @@ export function Header({ locale, c }: { locale: Locale; c: Pick<Content, 'nav' |
           </nav>
           <div className="flex items-center gap-4">
             <div className="hidden lg:block">
-              <ButtonLink href={href(locale, 'visita')}>{c.nav.visita}</ButtonLink>
+              <ButtonLink href={href(locale, 'visita')} icon="calendario">
+                {c.nav.visita}
+              </ButtonLink>
             </div>
             <LanguageSwitch locale={locale} label={c.a11y.language} short={c.nav.langShort} name={c.nav.langName} />
             <button

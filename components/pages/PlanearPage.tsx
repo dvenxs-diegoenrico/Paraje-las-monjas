@@ -1,6 +1,12 @@
 import { Eyebrow } from '@/components/base/Typography';
 import { Valance } from '@/components/base/Valance';
 import { FAQ } from '@/components/content/FAQ';
+import { FactCards } from '@/components/content/Graphics';
+import { Icon, type IconName } from '@/components/base/Icon';
+
+const COURSE_ICON: IconName[] = ['crema', 'pasta', 'plato', 'ensalada'];
+const TOC_ICON: IconName[] = ['personas', 'mesa', 'plato', 'silla', 'chat'];
+const GROUP_ICON: IconName[] = ['mantel', 'plato', 'plato', 'copa', 'mesa', 'silla', 'flor'];
 import { OfferCard } from '@/components/content/OfferCard';
 import { PageHero } from '@/components/content/PageHero';
 import { ScaleTabs } from '@/components/content/ScaleTabs';
@@ -27,8 +33,9 @@ export function PlanearPage({ locale }: { locale: Locale }) {
         <ol className="t-nav flex flex-wrap gap-x-8 gap-y-2 border-y border-cantera/40 py-4">
           {p.toc.map((t, i) => (
             <li key={t}>
-              <a href={`#${anchors[i]}`} className="link-grow inline-flex min-h-[44px] items-center gap-2">
-                <span className="t-caption text-tabique">0{i + 1}</span> {t}
+              <a href={`#${anchors[i]}`} className="group inline-flex min-h-[44px] items-center gap-2">
+                <Icon name={TOC_ICON[i]} size={20} className="text-tabique" />
+                <span className="link-grow">{t}</span>
               </a>
             </li>
           ))}
@@ -39,23 +46,18 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       <section id="capacidades" className="scroll-mt-24 py-20 lg:py-28" aria-labelledby="cap-t">
         <div className="container-lux grid-lux gap-y-12">
           <div className="col-span-4 md:col-span-8 lg:col-span-4">
-            <Eyebrow>{h.eyebrow}</Eyebrow>
+            <Eyebrow icon="personas">{h.eyebrow}</Eyebrow>
             <h2 id="cap-t" className="t-h2 mt-6">
               {h.title}
             </h2>
             <p className="mt-6 text-piedra/85">{h.intro}</p>
           </div>
           <div className="col-span-4 md:col-span-8 lg:col-span-7 lg:col-start-6">
-            <ScaleTabs scales={c.scales} label={h.label} footnote={c.scalesFootnote} spacesLabel={h.spacesLabel} offerLabel={h.offerLabel} />
-            <p className="t-eyebrow mt-14 text-tabique">{p.includedTitle}</p>
-            <dl className="mt-4">
-              {c.facts.map((f) => (
-                <div key={f.k} className="grid grid-cols-[9rem_1fr] gap-4 border-t border-cantera/30 py-4 md:grid-cols-[12rem_1fr]">
-                  <dt className="t-data text-tabique">{f.k}</dt>
-                  <dd className="t-data">{f.v}</dd>
-                </div>
-              ))}
-            </dl>
+            <ScaleTabs scales={c.scales} label={h.label} footnote={c.scalesFootnote} spacesLabel={h.spacesLabel} offerLabel={h.offerLabel} legend={c.dotsLegend} />
+          </div>
+          <div className="col-span-4 md:col-span-8 lg:col-span-12">
+            <p className="t-eyebrow mb-5 text-tabique">{p.includedTitle}</p>
+            <FactCards facts={c.facts} />
           </div>
         </div>
       </section>
@@ -64,7 +66,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       <section id="paquetes" className="relative scroll-mt-24 bg-cal-claro py-20 lg:py-28" aria-labelledby="paq-t">
         <Valance color="var(--cal-claro)" />
         <div className="container-lux">
-          <Eyebrow>{c.offers.eyebrow}</Eyebrow>
+          <Eyebrow icon="mesa">{c.offers.eyebrow}</Eyebrow>
           <h2 id="paq-t" className="t-h2 mt-6">
             {c.celebraciones.title}
           </h2>
@@ -83,7 +85,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
         <Valance color="var(--cal)" />
         <div className="container-lux grid-lux gap-y-12">
           <div className="col-span-4 md:col-span-3 lg:col-span-4">
-            <Eyebrow>{c.menu.eyebrow}</Eyebrow>
+            <Eyebrow icon="plato">{c.menu.eyebrow}</Eyebrow>
             <h2 id="menu-t" className="t-h2 mt-6">
               {c.menu.title}
             </h2>
@@ -95,8 +97,13 @@ export function PlanearPage({ locale }: { locale: Locale }) {
           <div className="col-span-4 md:col-span-5 lg:col-span-7 lg:col-start-6">
             <div className="grid gap-x-8 gap-y-10 md:grid-cols-2">
               {c.menu.courses.map((course, i) => (
-                <div key={course.name} className="border-t border-cantera/40 pt-5">
-                  <p className="t-caption text-tabique">0{i + 1}</p>
+                <div key={course.name} className="group border-t border-cantera/40 pt-5">
+                  <div className="flex items-center gap-3">
+                    <span className="grid h-12 w-12 place-items-center rounded-full bg-cal-claro text-fronda">
+                      <Icon name={COURSE_ICON[i]} size={26} />
+                    </span>
+                    <p className="t-caption text-tabique">0{i + 1}</p>
+                  </div>
                   <h3 className="mt-2 font-serif text-[28px] italic">{course.name}</h3>
                   <ul className="mt-3 space-y-1">
                     {course.options.map((o) => (
@@ -129,15 +136,18 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       <section id="mobiliario" className="relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby="mob-t">
         <div className="container-lux">
           <hr className="junta mb-16" />
-          <Eyebrow>{c.catalogue.eyebrow}</Eyebrow>
+          <Eyebrow icon="silla">{c.catalogue.eyebrow}</Eyebrow>
           <h2 id="mob-t" className="t-h2 mt-6 max-w-[20ch]">
             {c.catalogue.title}
           </h2>
           <p className="t-caption mt-4 text-piedra/70">{c.catalogue.note}</p>
           <div className="mt-12 columns-1 gap-x-10 md:columns-2 lg:columns-3">
-            {c.catalogue.groups.map((g) => (
-              <div key={g.name} className="mb-10 break-inside-avoid">
-                <h3 className="t-h3">{g.name}</h3>
+            {c.catalogue.groups.map((g, gi) => (
+              <div key={g.name} className="group mb-10 break-inside-avoid">
+                <h3 className="t-h3 flex items-center gap-3">
+                  <Icon name={GROUP_ICON[gi] ?? 'hoja'} size={24} className="text-tabique" />
+                  {g.name}
+                </h3>
                 <dl className="mt-3">
                   {g.items.map(([k, v]) => (
                     <div key={k} className="flex items-baseline justify-between gap-4 border-t border-cantera/30 py-2">
@@ -156,7 +166,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       <section id="preguntas" className="scroll-mt-24 bg-cal pb-28 pt-10 lg:pb-36" aria-labelledby="faq-t">
         <div className="container-lux grid-lux gap-y-10">
           <div className="col-span-4 md:col-span-8 lg:col-span-4">
-            <Eyebrow>{c.faq.eyebrow}</Eyebrow>
+            <Eyebrow icon="chat">{c.faq.eyebrow}</Eyebrow>
             <h2 id="faq-t" className="t-h2 mt-6">
               {c.faq.title}
             </h2>

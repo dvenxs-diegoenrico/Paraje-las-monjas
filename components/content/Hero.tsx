@@ -6,6 +6,7 @@ import { useReducedMotion, useScroll, useTransform } from 'motion/react';
 import * as m from 'motion/react-m';
 import { ButtonLink, TextLink } from '@/components/base/Button';
 import { Mark } from '@/components/brand/Logo';
+import { Walker } from '@/components/content/Graphics';
 import { href, type Locale } from '@/lib/i18n';
 import { images } from '@/lib/images';
 import type { Content } from '@/content';
@@ -95,6 +96,8 @@ export function Hero({
                 </div>
               </div>
             </div>
+            {/* dappled light drifting over the lawn */}
+            <div aria-hidden="true" className="dapple pointer-events-none absolute inset-0" style={mask} />
             {/* the crowns, cut from the sky, rising out of the frame */}
             <div
               className="absolute bottom-0 left-1/2 w-[135%] -translate-x-1/2"
@@ -138,13 +141,18 @@ export function Hero({
           </div>
         </m.div>
 
+        {/* the catarina — the "monja" of the name — crossing the garden */}
+        <Walker className="bottom-2 left-[var(--margin)] z-30 hidden lg:block" />
+
         {/* PLANE 3 · lede + actions */}
         <m.div style={{ y: frontY }} className="relative z-20 mt-14 max-w-[30rem] lg:absolute lg:bottom-16 lg:left-[var(--margin)] lg:mt-0">
           <p style={rise(0.7).style} className="anim-rise text-[17px] leading-relaxed text-piedra/85 lg:text-[18px]">
             {c.lede}
           </p>
           <div style={rise(0.85).style} className="anim-rise mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <ButtonLink href={href(locale, 'visita')}>{c.cta}</ButtonLink>
+            <ButtonLink href={href(locale, 'visita')} icon="calendario">
+              {c.cta}
+            </ButtonLink>
             <TextLink href={href(locale, 'lugar')}>{c.secondary}</TextLink>
           </div>
         </m.div>

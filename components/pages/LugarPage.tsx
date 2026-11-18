@@ -6,6 +6,10 @@ import { ScallopImage } from '@/components/media/ScallopImage';
 import { Reveal } from '@/components/motion/Reveal';
 import { Mark } from '@/components/brand/Logo';
 import { getContent } from '@/content';
+import { SpacesDiagram, spaceIcon } from '@/components/content/Graphics';
+import { Icon, type IconName } from '@/components/base/Icon';
+
+const MATERIAL_ICON: IconName[] = ['ladrillo', 'arco', 'hoja', 'pabellon'];
 import type { Locale } from '@/lib/i18n';
 import { images, type ImageKey } from '@/lib/images';
 
@@ -16,6 +20,10 @@ export function LugarPage({ locale }: { locale: Locale }) {
   return (
     <>
       <PageHero locale={locale} eyebrow={p.eyebrow} title={p.title} intro={p.intro} backWord={locale === 'es' ? 'el lugar' : 'the place'} photo={images.pabellonCristal} />
+
+      <div className="container-lux pb-8">
+        <SpacesDiagram spaces={c.spaces} g={c.spacesGroups} />
+      </div>
 
       {c.spaces.map((s, i) => {
         const flip = i % 2 === 1;
@@ -28,9 +36,12 @@ export function LugarPage({ locale }: { locale: Locale }) {
                   <ScallopImage photo={images[s.image as ImageKey]} locale={locale} shape={flip ? 'rect' : 'arch'} ratio="4:5" sizes="(min-width:1024px) 40vw, 90vw" />
                 </div>
                 <div className={`col-span-4 md:col-span-3 lg:col-span-5 ${flip ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-7'}`}>
-                  <Reveal>
-                    <p className="t-caption text-tabique">0{i + 1} / 04</p>
-                  </Reveal>
+                  <div className="live flex items-center gap-3 text-tabique">
+                    <span className="grid h-14 w-14 place-items-center rounded-full bg-cal-claro text-fronda">
+                      <Icon name={spaceIcon(s.name)} size={30} />
+                    </span>
+                    <span className="t-caption">0{i + 1} / 04</span>
+                  </div>
                   <Reveal delay={0.1}>
                     <h2 id={`${s.id}-t`} className="t-h2 mt-4">
                       {s.name}
@@ -52,11 +63,11 @@ export function LugarPage({ locale }: { locale: Locale }) {
         );
       })}
 
-      <section className="on-dark relative bg-piedra py-28 text-cal lg:py-40" aria-labelledby="materiales">
+      <section className="on-dark grain relative overflow-hidden bg-piedra py-28 text-cal lg:py-40" aria-labelledby="materiales">
         <Valance color="var(--piedra)" />
         <div className="container-lux">
           <Reveal>
-            <Eyebrow tone="cantera">{c.materials.eyebrow}</Eyebrow>
+            <Eyebrow tone="cantera" icon="ladrillo">{c.materials.eyebrow}</Eyebrow>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 id="materiales" className="t-h2 mt-6 max-w-[18ch]">
@@ -66,7 +77,9 @@ export function LugarPage({ locale }: { locale: Locale }) {
           <ol className="mt-16 grid gap-x-6 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
             {c.materials.items.map((m, i) => (
               <Reveal as="li" key={m.name} delay={i * 0.1} className="border-t border-cantera/30 pt-6">
-                <p className="t-caption text-cantera">0{i + 1}</p>
+                <span className="text-cantera">
+                  <Icon name={MATERIAL_ICON[i]} size={36} />
+                </span>
                 <h3 className="mt-3 font-serif text-[36px] font-light italic">{m.name}</h3>
                 <p className="mt-3 text-cal/80">{m.text}</p>
               </Reveal>

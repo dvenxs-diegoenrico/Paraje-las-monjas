@@ -5,6 +5,9 @@ import { getContent } from '@/content';
 import type { Locale } from '@/lib/i18n';
 import { galleryChapters, images } from '@/lib/images';
 import { scallopMask } from '@/lib/scallop';
+import { Icon, type IconName } from '@/components/base/Icon';
+
+const CH_ICON: Record<string, IconName> = { arquitectura: 'arco', jardines: 'arbol', mesa: 'mesa', noche: 'luna' };
 
 export function GaleriaPage({ locale }: { locale: Locale }) {
   const c = getContent(locale);
@@ -23,8 +26,10 @@ export function GaleriaPage({ locale }: { locale: Locale }) {
         <ol className="t-nav flex flex-wrap gap-x-8 gap-y-2 border-y border-cantera/40 py-4">
           {chapters.map((ch, i) => (
             <li key={ch.id}>
-              <a href={`#${ch.id}`} className="link-grow inline-flex min-h-[44px] items-center gap-2">
-                <span className="t-caption text-tabique">0{i + 1}</span> {ch.name}
+              <a href={`#${ch.id}`} className="group inline-flex min-h-[44px] items-center gap-2">
+                <Icon name={CH_ICON[ch.id]} size={20} className="text-tabique" />
+                <span className="link-grow">{ch.name}</span>
+                <span className="t-caption text-piedra/70">0{i + 1}</span>
               </a>
             </li>
           ))}

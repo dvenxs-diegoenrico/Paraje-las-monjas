@@ -6,6 +6,8 @@ import { CrossFade } from '@/components/content/CrossFade';
 import { Hero } from '@/components/content/Hero';
 import { EditorialTriptych, GalleryMosaic, Manifesto, Philosophy, SpacesShowcase } from '@/components/content/HomeSections';
 import { ScaleTabs } from '@/components/content/ScaleTabs';
+import { FactCards, HowItWorks } from '@/components/content/Graphics';
+import { Icon } from '@/components/base/Icon';
 import { VisitCTA } from '@/components/conversion/VisitCTA';
 import { scallopStyle } from '@/components/media/ScallopImage';
 import { Reveal } from '@/components/motion/Reveal';
@@ -21,7 +23,7 @@ export function HomePage({ locale }: { locale: Locale }) {
     <>
       <Hero locale={locale} c={h.hero} archMask={scallopMask('arch', 1 / 1.3, 1)} sealMask={scallopMask('circle', 1, 1.6)} />
       <Manifesto c={h.manifesto} />
-      <SpacesShowcase locale={locale} c={h.lugar} spaces={c.spaces} />
+      <SpacesShowcase locale={locale} c={h.lugar} spaces={c.spaces} groups={c.spacesGroups} />
       <EditorialTriptych locale={locale} c={h.editorial} />
 
       {/* 5 · Adentro y afuera */}
@@ -30,7 +32,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         <div className="container-lux grid-lux items-center gap-y-14">
           <div className="col-span-4 md:col-span-8 lg:col-span-5">
             <Reveal>
-              <Eyebrow tone="cantera">{h.adentro.eyebrow}</Eyebrow>
+              <Eyebrow tone="cantera" icon="pabellon">{h.adentro.eyebrow}</Eyebrow>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 id="adentro" className="t-h2 mt-6">
@@ -42,6 +44,11 @@ export function HomePage({ locale }: { locale: Locale }) {
                 {p}
               </Reveal>
             ))}
+            <div data-observe="" className="stagger mt-10 flex items-center gap-4 text-cal">
+              <span className="live grid h-16 w-16 place-items-center rounded-full bg-cal/10"><Icon name="pabellon" size={30} /></span>
+              <svg aria-hidden="true" viewBox="0 0 60 12" className="h-3 w-16 text-cantera"><path d="M1 6h50M46 1l6 5-6 5" fill="none" stroke="currentColor" strokeWidth="1.2" strokeDasharray="3 3" className="icon-dash" /></svg>
+              <span className="live grid h-16 w-16 place-items-center rounded-full bg-cal/10"><Icon name="arbol" size={30} /></span>
+            </div>
             <div className="mt-10 text-cal">
               <TextLink href={href(locale, 'lugar', 'pabellon-de-cristal')}>{h.adentro.link}</TextLink>
             </div>
@@ -66,7 +73,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         <div className="container-lux grid-lux gap-y-14">
           <div className="col-span-4 md:col-span-8 lg:col-span-4">
             <Reveal>
-              <Eyebrow>{h.capacidades.eyebrow}</Eyebrow>
+              <Eyebrow icon="personas">{h.capacidades.eyebrow}</Eyebrow>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 id="capacidades" className="t-h2 mt-6">
@@ -78,21 +85,32 @@ export function HomePage({ locale }: { locale: Locale }) {
             </Reveal>
           </div>
           <div className="col-span-4 md:col-span-8 lg:col-span-7 lg:col-start-6">
-            <ScaleTabs scales={c.scales} label={h.capacidades.label} footnote={c.scalesFootnote} spacesLabel={h.capacidades.spacesLabel} offerLabel={h.capacidades.offerLabel} />
-            <div className="mt-14">
-              <p className="t-eyebrow text-tabique">{h.capacidades.factsTitle}</p>
-              <dl className="mt-4">
-                {c.facts.map((f) => (
-                  <div key={f.k} className="grid grid-cols-[9rem_1fr] gap-4 border-t border-cantera/30 py-4 md:grid-cols-[12rem_1fr]">
-                    <dt className="t-data text-tabique">{f.k}</dt>
-                    <dd className="t-data">{f.v}</dd>
-                  </div>
-                ))}
-              </dl>
-              <div className="mt-8">
+            <ScaleTabs scales={c.scales} label={h.capacidades.label} footnote={c.scalesFootnote} spacesLabel={h.capacidades.spacesLabel} offerLabel={h.capacidades.offerLabel} legend={c.dotsLegend} />
+          </div>
+          <div className="col-span-4 md:col-span-8 lg:col-span-12 mt-6">
+            <p className="t-eyebrow mb-5 text-tabique">{h.capacidades.factsTitle}</p>
+            <FactCards facts={c.facts} />
+            <div className="mt-8">
                 <TextLink href={href(locale, 'planear')}>{h.capacidades.link}</TextLink>
-              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cómo funciona */}
+      <section className="relative bg-cal pb-28 lg:pb-36" aria-labelledby="como">
+        <div className="container-lux">
+          <hr className="junta mb-16" />
+          <Reveal>
+            <Eyebrow icon="catarina">{c.howItWorks.eyebrow}</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h2 id="como" className="t-h2 mt-6 max-w-[18ch]">
+              {c.howItWorks.title}
+            </h2>
+          </Reveal>
+          <div className="mt-14">
+            <HowItWorks c={c.howItWorks} />
           </div>
         </div>
       </section>

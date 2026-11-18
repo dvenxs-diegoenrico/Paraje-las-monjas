@@ -6,6 +6,7 @@ import { Header } from '@/components/layout/Header';
 import { StickyMobileBar } from '@/components/conversion/StickyMobileBar';
 import { MotionProvider } from '@/components/motion/MotionProvider';
 import { PageFade } from '@/components/motion/PageFade';
+import { InViewObserver } from '@/components/motion/InViewObserver';
 import { getContent } from '@/content';
 import type { Locale } from '@/lib/i18n';
 import { venueJsonLd } from '@/lib/seo';
@@ -28,8 +29,10 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
   const c = getContent(locale);
   const nav = { nav: c.nav, a11y: c.a11y, whatsappMessage: c.whatsappMessage };
   return (
-    <html lang={c.htmlLang} className={`${newsreader.variable} ${hanken.variable} ${dmMono.variable}`}>
+    <html lang={c.htmlLang} suppressHydrationWarning className={`${newsreader.variable} ${hanken.variable} ${dmMono.variable}`}>
       <body className="bg-cal text-piedra">
+        {/* lets CSS hide not-yet-drawn graphics only when JS will reveal them */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <a href="#contenido" className="t-nav fixed left-4 top-4 z-[60] -translate-y-24 bg-piedra px-5 py-4 text-cal transition-transform focus:translate-y-0">
           {c.a11y.skip}
         </a>
@@ -42,6 +45,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
           <Footer locale={locale} c={c} />
           <StickyMobileBar locale={locale} c={nav} />
         </MotionProvider>
+        <InViewObserver />
         <Analytics />
       </body>
     </html>

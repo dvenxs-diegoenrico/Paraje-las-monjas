@@ -72,10 +72,10 @@ export function MobileSheet({ open, onClose, locale, c }: { open: boolean; onClo
             </ul>
           </nav>
           <div className="container-lux flex shrink-0 flex-wrap gap-3 py-8">
-            <ButtonLink href={href(locale, 'visita')} onClick={onClose}>
+            <ButtonLink href={href(locale, 'visita')} onClick={onClose} icon="calendario">
               {c.nav.visita}
             </ButtonLink>
-            <ButtonA href={whatsappLink(c.whatsappMessage)} target="_blank" rel="noopener" tone="fronda" dot={false}>
+            <ButtonA href={whatsappLink(c.whatsappMessage)} target="_blank" rel="noopener" tone="fronda" icon="chat">
               {c.nav.whatsapp}
             </ButtonA>
           </div>

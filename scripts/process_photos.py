@@ -1,5 +1,8 @@
-"""Grade the placeholder photos and write public/images + lib/images.blur.json.
+"""Grade the placeholder photos and write public/images + lib/images.meta.json.
   python3 -I scripts/process_photos.py
+
+If _incoming/hd/<name>.jpg exists (a faithful 2x EDSR super-resolution made by
+scripts/upscale_photos.py) it is used instead of the original.
 Grade: restrained greens (-15% saturation, greens -25%), slightly warm, soft blacks."""
 import base64, json, os, cv2, numpy as np
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -34,7 +37,8 @@ meta = {}
 for f in sorted(os.listdir(SRC)):
     if not f.endswith('.jpg') or f.startswith('logo'):
         continue
-    im = cv2.imread(os.path.join(SRC, f))
+    hd = os.path.join(SRC, 'hd', f)
+    im = cv2.imread(hd if os.path.exists(hd) else os.path.join(SRC, f))
     g = grade(im)
     cv2.imwrite(os.path.join(OUT, f), g, [cv2.IMWRITE_JPEG_QUALITY, 90])
     meta[f[:-4]] = {'w': g.shape[1], 'h': g.shape[0], 'blur': blur(g)}

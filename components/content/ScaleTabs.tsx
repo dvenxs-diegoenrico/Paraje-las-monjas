@@ -4,11 +4,13 @@ import { useId, useRef, useState, type KeyboardEvent } from 'react';
 import { AnimatePresence } from 'motion/react';
 import * as m from 'motion/react-m';
 import type { Content } from '@/content';
+import { Icon } from '@/components/base/Icon';
+import { spaceIcon } from '@/components/content/spaceIcon';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /** 50 · 150 · 300 — illustrative scenarios, never floor plans. */
-export function ScaleTabs({ scales, label, footnote, spacesLabel, offerLabel }: { scales: Content['scales']; label: string; footnote: string; spacesLabel: string; offerLabel: string }) {
+export function ScaleTabs({ scales, label, footnote, spacesLabel, offerLabel, legend }: { scales: Content['scales']; label: string; footnote: string; spacesLabel: string; offerLabel: string; legend: string }) {
   const [active, setActive] = useState(0);
   const id = useId();
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -52,6 +54,24 @@ export function ScaleTabs({ scales, label, footnote, spacesLabel, offerLabel }: 
           </button>
         ))}
       </div>
+      {/* each dot is ten guests: the scale is seen before it is read */}
+      <div aria-hidden="true" className="mt-8">
+        <div className="dot-grid grid grid-cols-[repeat(15,minmax(0,1fr))] gap-2 sm:gap-3">
+          {Array.from({ length: 30 }, (_, i) => {
+            const on = i < s.guests / 10;
+            return (
+              <span
+                key={i}
+                className={`aspect-square rounded-full ${on ? 'scale-100 bg-fronda' : 'scale-50 bg-cantera/60'}`}
+                style={{ transitionDelay: `${(on ? i : 30 - i) * 18}ms` }}
+              />
+            );
+          })}
+        </div>
+        <p className="t-caption mt-3 flex items-center gap-2 text-piedra/70">
+          <span className="inline-block h-2.5 w-2.5 rounded-full bg-fronda" /> {legend}
+        </p>
+      </div>
       <div id={`${id}-panel`} role="tabpanel" aria-labelledby={`${id}-tab-${active}`} tabIndex={0} className="relative min-h-[260px] pt-10">
         <AnimatePresence mode="wait" initial={false}>
           <m.div key={s.id} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.6, ease }}>
@@ -60,7 +80,16 @@ export function ScaleTabs({ scales, label, footnote, spacesLabel, offerLabel }: 
             <dl className="t-data mt-8 grid gap-4 md:grid-cols-2">
               <div>
                 <dt className="text-tabique">{spacesLabel}</dt>
-                <dd className="mt-1">{s.spaces.join(' · ')}</dd>
+                <dd className="mt-2 flex flex-wrap gap-2">
+                  {s.spaces.map((sp) => (
+                    <span key={sp} className="inline-flex items-center gap-2 rounded-full bg-cal-claro py-1 pl-1 pr-3">
+                      <span className="grid h-7 w-7 place-items-center rounded-full bg-fronda text-cal">
+                        <Icon name={spaceIcon(sp)} size={16} draw={false} />
+                      </span>
+                      {sp}
+                    </span>
+                  ))}
+                </dd>
               </div>
               <div>
                 <dt className="text-tabique">{offerLabel}</dt>

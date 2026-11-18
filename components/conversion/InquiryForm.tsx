@@ -143,7 +143,7 @@ export function InquiryForm({ locale, c, turnstileSiteKey, tone = 'dark' }: { lo
       </div>
 
       <div className="mt-4 flex flex-wrap items-center gap-6">
-        <Button type="submit" tone={onDark ? 'cal' : 'piedra'} disabled={pending} aria-disabled={pending}>
+        <Button type="submit" tone={onDark ? 'cal' : 'piedra'} disabled={pending} aria-disabled={pending} icon="sobre">
           {pending ? c.sending : c.submit}
         </Button>
         <p className={`t-caption max-w-[34ch] ${onDark ? 'text-cal/70' : 'text-piedra/70'}`}>

@@ -4,6 +4,9 @@ import { VisitCTA } from '@/components/conversion/VisitCTA';
 import { ScallopImage } from '@/components/media/ScallopImage';
 import { Reveal } from '@/components/motion/Reveal';
 import { getContent } from '@/content';
+import { Icon, type IconName } from '@/components/base/Icon';
+
+const KIND_ICON: Record<string, IconName> = { bodas: 'brindis', 'bodas-intimas': 'mesa', familia: 'personas', jornadas: 'proyector' };
 import type { Locale } from '@/lib/i18n';
 import { images, type ImageKey } from '@/lib/images';
 
@@ -18,8 +21,9 @@ export function CelebracionesPage({ locale }: { locale: Locale }) {
         <ul className="t-nav flex flex-wrap gap-x-8 gap-y-2 border-y border-cantera/40 py-4">
           {p.kinds.map((k) => (
             <li key={k.id}>
-              <a href={`#${k.id}`} className="link-grow inline-flex min-h-[44px] items-center">
-                {k.name}
+              <a href={`#${k.id}`} className="group inline-flex min-h-[44px] items-center gap-2">
+                <Icon name={KIND_ICON[k.id]} size={20} className="text-tabique" />
+                <span className="link-grow">{k.name}</span>
               </a>
             </li>
           ))}
@@ -30,7 +34,12 @@ export function CelebracionesPage({ locale }: { locale: Locale }) {
           <div className="container-lux grid-lux gap-y-12">
             <div className="col-span-4 md:col-span-3 lg:col-span-4">
               <div className="lg:sticky lg:top-28">
-                <p className="t-caption text-tabique">0{i + 1}</p>
+                <div className="live flex items-center gap-3 text-tabique">
+                  <span className="grid h-14 w-14 place-items-center rounded-full bg-cal-claro text-fronda">
+                    <Icon name={KIND_ICON[k.id]} size={30} />
+                  </span>
+                  <span className="t-caption">0{i + 1}</span>
+                </div>
                 <Reveal>
                   <h2 id={`${k.id}-t`} className="t-h2 mt-3">
                     {k.name}
