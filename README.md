@@ -74,7 +74,7 @@ The structure is CMS-ready: each page component receives a typed `Content` objec
 
 ### TODO · slots waiting for final photography
 
-All current photos are **low-resolution placeholders** (435–1,286 px wide) extracted from the client's sample PDF. Every slot needs final photography; priority:
+All current photos are placeholders extracted from the client's sample PDF (435–1,286 px), now upscaled 2× with EDSR to 870–1,728 px. Every slot needs final photography; priority:
 
 | Slot | Current file | Needs |
 |---|---|---|
