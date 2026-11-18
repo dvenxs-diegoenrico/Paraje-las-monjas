@@ -103,7 +103,7 @@ Without the Resend variables the form **fails safely**: it validates, then tells
 
 - `pnpm test:e2e`: every route in ES and EN (one `h1`, correct `lang`, axe WCAG 2.2 AA, no page errors) on desktop and Pixel 7, plus nav + language switch, WhatsApp links, server-side form validation, safe failure, lightbox keyboard/focus trap, keyboard tabs. In this sandbox: `PW_CHROMIUM=/opt/pw-browsers/chromium pnpm test:e2e`.
 - Stray colours: `grep -rnoiE "#[0-9a-f]{6}" app components lib` should return only tokens (plus the documented light-logo tints `#C4694A`, `#7C9A83`).
-- Lighthouse (local `next start`, mobile, simulated 4G): accessibility 100, SEO 100, best practices 96 (only because `/_vercel/insights` 404s off Vercel), performance 79–86. The remaining gap is JS weight (~225 KB gz: Next/React runtime ≈ 150 KB + Motion ≈ 35 KB) and local image optimisation; re-measure on the Vercel preview.
+- Lighthouse, mobile, on the Vercel production URL: performance 81, accessibility 100, best practices 100, SEO 100 (LCP 3.8 s, CLS 0, TBT 360 ms). Below the ≥ 95 target: the gap is JS weight (~225 KB gz: Next/React runtime ≈ 150 KB + Motion ≈ 35 KB) and the hero waiting on hydration. Next step if it matters: replace Motion with CSS + IntersectionObserver.
 
 ## Open items `[por confirmar]`
 
