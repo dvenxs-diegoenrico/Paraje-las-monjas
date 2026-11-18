@@ -1,0 +1,60 @@
+import { PageHero } from '@/components/content/PageHero';
+import { OfferCard } from '@/components/content/OfferCard';
+import { VisitCTA } from '@/components/conversion/VisitCTA';
+import { ScallopImage } from '@/components/media/ScallopImage';
+import { Reveal } from '@/components/motion/Reveal';
+import { getContent } from '@/content';
+import type { Locale } from '@/lib/i18n';
+import { images, type ImageKey } from '@/lib/images';
+
+export function CelebracionesPage({ locale }: { locale: Locale }) {
+  const c = getContent(locale);
+  const p = c.celebraciones;
+  const byId = Object.fromEntries(c.offers.items.map((o) => [o.id, o]));
+  return (
+    <>
+      <PageHero locale={locale} eyebrow={p.eyebrow} title={p.title} intro={p.intro} backWord={locale === 'es' ? 'celebrar' : 'celebrate'} photo={images.mesaMadera} />
+      <nav aria-label={p.eyebrow} className="container-lux">
+        <ul className="t-nav flex flex-wrap gap-x-8 gap-y-2 border-y border-cantera/40 py-4">
+          {p.kinds.map((k) => (
+            <li key={k.id}>
+              <a href={`#${k.id}`} className="link-grow inline-flex min-h-[44px] items-center">
+                {k.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      {p.kinds.map((k, i) => (
+        <section key={k.id} id={k.id} className="scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby={`${k.id}-t`}>
+          <div className="container-lux grid-lux gap-y-12">
+            <div className="col-span-4 md:col-span-3 lg:col-span-4">
+              <div className="lg:sticky lg:top-28">
+                <p className="t-caption text-tabique">0{i + 1}</p>
+                <Reveal>
+                  <h2 id={`${k.id}-t`} className="t-h2 mt-3">
+                    {k.name}
+                  </h2>
+                </Reveal>
+                <Reveal delay={0.1} as="p" className="mt-6 text-piedra/85">
+                  {k.text}
+                </Reveal>
+                <div className="mt-10 w-2/3 max-w-[300px]">
+                  <ScallopImage photo={images[k.image as ImageKey]} locale={locale} shape={i % 2 ? 'rect' : 'arch'} ratio="3:4" sizes="25vw" density={0.8} />
+                </div>
+              </div>
+            </div>
+            <div className="col-span-4 flex flex-col gap-6 md:col-span-5 lg:col-span-7 lg:col-start-6">
+              {k.offers.map((id) => (
+                <Reveal key={id}>
+                  <OfferCard offer={byId[id]} c={c} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+      <VisitCTA locale={locale} c={c} />
+    </>
+  );
+}
