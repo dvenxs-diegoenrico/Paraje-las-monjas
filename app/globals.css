@@ -272,6 +272,15 @@ img {
 .anim-rise {
   animation: rise 1.1s var(--ease-lux) both;
 }
+/* transform-only rise for above-the-fold text: visible from the first frame */
+@keyframes rise-t {
+  from {
+    transform: translateY(24px);
+  }
+}
+.anim-rise-t {
+  animation: rise-t 1.1s var(--ease-lux) both;
+}
 .anim-fade {
   animation: fade 1.6s var(--ease-lux) both;
 }

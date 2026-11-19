@@ -27,7 +27,7 @@ export function Hero({ locale, c }: { locale: Locale; c: Content['home']['hero']
 
   const bg = images.pabellonCristal;
   const inset = images.arbolado;
-  const rise = (delay: number) => ({ className: 'anim-rise', style: { animationDelay: `${delay}s` } });
+  const rise = (delay: number) => ({ className: 'anim-rise-t', style: { animationDelay: `${delay}s` } });
 
   return (
     <section ref={ref} className="on-dark relative isolate overflow-hidden bg-piedra pt-[var(--header-h)] text-cal" aria-labelledby="hero-title">
@@ -59,7 +59,7 @@ export function Hero({ locale, c }: { locale: Locale; c: Content['home']['hero']
         <div aria-hidden="true" className="absolute inset-y-0 left-0 z-[1] w-2/3 bg-gradient-to-r from-piedra/60 to-transparent" />
 
         <div className="container-lux relative z-10 flex min-h-[calc(100svh-var(--header-h))] flex-col justify-end pb-10 pt-10 lg:pb-14">
-          <p {...rise(0.05)} className="anim-rise t-eyebrow absolute left-[var(--margin)] top-6 flex items-center gap-3 text-cal/90 lg:top-10">
+          <p {...rise(0.05)} className="anim-rise-t t-eyebrow absolute left-[var(--margin)] top-6 flex items-center gap-3 text-cal/90 lg:top-10">
             <span aria-hidden="true" className="h-px w-10 bg-cal/70" />
             {c.eyebrow}
           </p>
@@ -80,17 +80,17 @@ export function Hero({ locale, c }: { locale: Locale; c: Content['home']['hero']
           {/* PLANE 3 · headline + actions */}
           <m.div style={{ y: frontY }} className="relative z-20">
             <h1 id="hero-title" className="[text-shadow:0_2px_4px_rgb(0_0_0/0.25),0_8px_24px_rgb(0_0_0/0.25)]">
-              <span style={rise(0.15).style} className="anim-rise t-colossal block">
+              <span style={rise(0.15).style} className="anim-rise-t t-colossal block">
                 {c.line1}
               </span>{' '}
-              <span style={rise(0.3).style} className="anim-rise t-colossal block pl-[4vw] italic">
+              <span style={rise(0.3).style} className="anim-rise-t t-colossal block pl-[4vw] italic">
                 {c.line2}
               </span>{' '}
-              <span style={rise(0.45).style} className="anim-rise mt-3 block pl-[4vw] font-serif text-[clamp(26px,3vw,48px)] font-light italic leading-tight lg:mt-5">
+              <span style={rise(0.45).style} className="anim-rise-t mt-3 block pl-[4vw] font-serif text-[clamp(26px,3vw,48px)] font-light italic leading-tight lg:mt-5">
                 {c.line3}
               </span>
             </h1>
-            <div style={rise(0.7).style} className="anim-rise mt-8 flex max-w-[34rem] flex-col gap-6 lg:mt-10">
+            <div style={rise(0.7).style} className="anim-rise-t mt-8 flex max-w-[34rem] flex-col gap-6 lg:mt-10">
               <p className="text-[17px] leading-relaxed text-cal/90 lg:text-[19px]">{c.lede}</p>
               <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ButtonLink href={href(locale, 'visita')} icon="calendario" tone="cal">

@@ -32,7 +32,7 @@ export function TrustBar({ c }: { c: Pick<Content, 'trust' | 'press'> }) {
               <span className="grid h-12 w-12 place-items-center rounded-full bg-cal text-fronda shadow-lux">
                 <Icon name={it.icon} size={26} />
               </span>
-              <h3 className="font-serif text-[19px] leading-tight md:text-[24px]">{it.t}</h3>
+              <p className="font-serif text-[19px] leading-tight md:text-[24px]">{it.t}</p>
               <p className="text-[14px] leading-snug text-piedra/80 md:text-[15px]">{it.d}</p>
             </li>
           ))}
