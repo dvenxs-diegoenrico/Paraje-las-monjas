@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { useReducedMotion, useScroll, useTransform } from 'motion/react';
 import * as m from 'motion/react-m';
 import { ButtonLink, TextLink } from '@/components/base/Button';
+import { AmbientVideo } from '@/components/media/AmbientVideo';
 import { href, type Locale } from '@/lib/i18n';
 import { images } from '@/lib/images';
 import type { Content } from '@/content';
@@ -46,6 +47,10 @@ export function Hero({ locale, c }: { locale: Locale; c: Content['home']['hero']
               className="h-full w-full object-cover"
               style={{ objectPosition: '50% 58%' }}
             />
+          </div>
+          {/* ambient loop made from the venue's photographs; fades in after load */}
+          <div className="absolute inset-0 hidden md:block">
+            <AmbientVideo src="/video/hero-loop.mp4" />
           </div>
         </m.div>
         {/* legibility: one even veil plus a deeper one behind the headline */}

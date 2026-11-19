@@ -11,6 +11,9 @@ import type { Locale } from './i18n';
 
 export type Chapter = 'arquitectura' | 'jardines' | 'mesa' | 'noche';
 
+export type SpaceId = 'pilares' | 'pabellon' | 'arbolado' | 'pradera' | 'jornada';
+export type StyleId = 'clasico' | 'madera' | 'jardin';
+
 export type Photo = {
   id: string;
   src: string;
@@ -20,6 +23,9 @@ export type Photo = {
   alt: Record<Locale, string>;
   caption: Record<Locale, string>;
   chapter: Chapter;
+  /** what is visible in the photograph; used by the gallery filters. Leave unset when unsure. */
+  space?: SpaceId;
+  style?: StyleId;
   /** focal point for object-position when cropping */
   focus?: string;
 };
@@ -35,6 +41,8 @@ function photo(id: string, p: Omit<Photo, 'id' | 'src' | 'width' | 'height' | 'b
 export const images = {
   pabellonCristal: photo('pabellon-cristal', {
     chapter: 'arquitectura',
+    space: 'pabellon',
+    style: 'madera',
     focus: '50% 55%',
     alt: {
       es: 'Pabellón de cristal con perfil negro; mesa redonda con mantel azul marino y sillas de madera, el jardín al fondo.',
@@ -44,6 +52,8 @@ export const images = {
   }),
   mesaCristal: photo('mesa-cristal', {
     chapter: 'mesa',
+    space: 'pabellon',
+    style: 'madera',
     alt: {
       es: 'Mesa redonda con mantel rosa de lino, copas y centro de flores dentro del pabellón de cristal.',
       en: 'Round table with pink linen, glassware and a floral centrepiece inside the glass pavilion.',
@@ -52,6 +62,8 @@ export const images = {
   }),
   salonPiedra: photo('salon-piedra', {
     chapter: 'noche',
+    space: 'pilares',
+    style: 'madera',
     focus: '50% 60%',
     alt: {
       es: 'Salón con muro de piedra, telas blancas en el techo y luces colgantes sobre una mesa larga de madera.',
@@ -61,6 +73,8 @@ export const images = {
   }),
   salonPilares: photo('salon-pilares', {
     chapter: 'arquitectura',
+    space: 'pilares',
+    style: 'clasico',
     focus: '40% 50%',
     alt: {
       es: 'Salón de pilares de tabique aparente con mesas vestidas de blanco y rosa y sillas Tiffany.',
@@ -70,6 +84,7 @@ export const images = {
   }),
   mesaMadera: photo('mesa-madera', {
     chapter: 'mesa',
+    style: 'madera',
     alt: {
       es: 'Mesa de madera oscura con camino de lino, platos sobre bajoplatos de palma y servilletas blancas.',
       en: 'Dark wooden table with a linen runner, plates on palm chargers and white napkins.',
@@ -78,6 +93,8 @@ export const images = {
   }),
   aveParaiso: photo('ave-paraiso', {
     chapter: 'mesa',
+    space: 'pabellon',
+    style: 'madera',
     alt: {
       es: 'Mesa con camino naranja, servilletas fucsia, copas de color y un centro de aves del paraíso.',
       en: 'Table with an orange runner, fuchsia napkins, coloured glasses and a bird-of-paradise centrepiece.',
@@ -86,6 +103,8 @@ export const images = {
   }),
   arbolado: photo('jardin-arboles-1', {
     chapter: 'jardines',
+    space: 'arbolado',
+    style: 'jardin',
     focus: '50% 40%',
     alt: {
       es: 'El Arbolado: jardín de pasto con árboles maduros y un andador de piedra rojiza.',
@@ -104,6 +123,8 @@ export const images = {
   ),
   arboladoFuente: photo('jardin-arboles-2', {
     chapter: 'jardines',
+    space: 'arbolado',
+    style: 'jardin',
     focus: '50% 55%',
     alt: {
       es: 'Jardín de sombra con una fuente al centro, árboles y una línea de focos colgantes.',
@@ -113,6 +134,8 @@ export const images = {
   }),
   pradera: photo('jardin-multiusos-1', {
     chapter: 'jardines',
+    space: 'pradera',
+    style: 'jardin',
     focus: '50% 60%',
     alt: {
       es: 'La Pradera: un prado largo entre setos y cipreses bajo un cielo despejado.',
@@ -127,6 +150,8 @@ export const images = {
   ),
   praderaSetos: photo('jardin-multiusos-2', {
     chapter: 'jardines',
+    space: 'pradera',
+    style: 'jardin',
     alt: {
       es: 'Prado abierto bordeado de setos altos y cipreses, con un muro encalado a la derecha.',
       en: 'Open lawn edged by tall hedges and cypresses, with a lime-washed wall on the right.',
@@ -135,6 +160,8 @@ export const images = {
   }),
   pabellonAzul: photo('pabellon-mesa-azul', {
     chapter: 'arquitectura',
+    space: 'pabellon',
+    style: 'clasico',
     alt: {
       es: 'Mesa redonda con mantel blanco y cubremantel azul, sillas Tiffany blancas, piso de piedra y ventanales.',
       en: 'Round table with white cloth and blue overlay, white Tiffany chairs, stone floor and tall windows.',
@@ -143,6 +170,8 @@ export const images = {
   }),
   pabellonCrossback: photo('pabellon-mesa-crossback', {
     chapter: 'arquitectura',
+    space: 'pabellon',
+    style: 'madera',
     alt: {
       es: 'Mesa con cubremantel azul y sillas de madera Cross Back sobre piso de piedra, frente al jardín.',
       en: 'Table with a blue overlay and wooden Cross Back chairs on a stone floor, facing the garden.',
@@ -151,6 +180,8 @@ export const images = {
   }),
   mesaLarga: photo('pabellon-mesa-larga', {
     chapter: 'mesa',
+    space: 'pabellon',
+    style: 'madera',
     alt: {
       es: 'Mesa larga de madera con camino de gasa beige y sillas Cross Back dentro del pabellón de cristal.',
       en: 'Long wooden table with a beige gauze runner and Cross Back chairs inside the glass pavilion.',
@@ -167,6 +198,7 @@ export const images = {
   }),
   jornadaNegras: photo('jornada-negras', {
     chapter: 'arquitectura',
+    space: 'jornada',
     alt: {
       es: 'Área techada montada tipo escuela con sillas negras acojinadas frente a una pantalla.',
       en: 'Covered area set classroom-style with black padded chairs facing a screen.',
@@ -175,6 +207,8 @@ export const images = {
   }),
   jornadaTiffany: photo('jornada-tiffany', {
     chapter: 'arquitectura',
+    space: 'jornada',
+    style: 'clasico',
     alt: {
       es: 'Área techada montada tipo escuela con sillas Tiffany blancas frente a una pantalla.',
       en: 'Covered area set classroom-style with white Tiffany chairs facing a screen.',

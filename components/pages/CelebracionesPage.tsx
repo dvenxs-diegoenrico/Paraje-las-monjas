@@ -1,5 +1,6 @@
 import { PageHero } from '@/components/content/PageHero';
 import { OfferCard } from '@/components/content/OfferCard';
+import { Credits, Montajes } from '@/components/content/Montajes';
 import { VisitCTA } from '@/components/conversion/VisitCTA';
 import { ScallopImage } from '@/components/media/ScallopImage';
 import { Reveal } from '@/components/motion/Reveal';
@@ -63,6 +64,8 @@ export function CelebracionesPage({ locale }: { locale: Locale }) {
           </div>
         </section>
       ))}
+      <Montajes locale={locale} c={c} />
+      <Credits c={c} />
       <VisitCTA locale={locale} c={c} />
     </>
   );

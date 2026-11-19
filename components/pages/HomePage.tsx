@@ -3,6 +3,7 @@ import { TextLink } from '@/components/base/Button';
 import { Eyebrow } from '@/components/base/Typography';
 import { CrossFade } from '@/components/content/CrossFade';
 import { Hero } from '@/components/content/Hero';
+import { TrustBar } from '@/components/content/Trust';
 import { EditorialTriptych, GalleryMosaic, Manifesto, Philosophy, SpacesShowcase } from '@/components/content/HomeSections';
 import { ScaleTabs } from '@/components/content/ScaleTabs';
 import { FactCards, HowItWorks } from '@/components/content/Graphics';
@@ -19,6 +20,7 @@ export function HomePage({ locale }: { locale: Locale }) {
   return (
     <>
       <Hero locale={locale} c={h.hero} />
+      <TrustBar c={c} />
       <Manifesto c={h.manifesto} />
       <SpacesShowcase locale={locale} c={h.lugar} spaces={c.spaces} groups={c.spacesGroups} />
       <EditorialTriptych locale={locale} c={h.editorial} />

@@ -46,12 +46,34 @@ test('whatsapp links carry the prefilled message', async ({ page }) => {
 test('inquiry form validates on the server and reports inline', async ({ page }) => {
   await page.goto('/visita');
   const form = page.locator('form').first();
-  await form.getByRole('button', { name: 'Enviar' }).click();
+  await form.getByRole('button', { name: /Solicitar visita privada/ }).click();
   await expect(form.getByText('Escribe tu nombre.')).toBeVisible();
   await expect(form.getByText('Déjanos un correo o un teléfono para responderte.')).toBeVisible();
   await expect(form.getByText('Elige una fecha tentativa.')).toBeVisible();
+  await expect(form.getByText(/Elige un rango de inversión/)).toBeVisible();
   await expect(form.getByLabel(/Nombre/)).toHaveAttribute('aria-invalid', 'true');
   await expect(form.getByLabel(/Nombre/)).toBeFocused();
+});
+
+test('the mandatory budget range is part of the inquiry form', async ({ page }) => {
+  await page.goto('/visita');
+  const budget = page.locator('form').first().getByLabel(/Inversión estimada/);
+  await expect(budget).toBeVisible();
+  await expect(budget.locator('option')).toHaveCount(7);
+});
+
+test('gallery filters narrow the photographs by space and style', async ({ page }) => {
+  await page.goto('/galeria');
+  const all = await page.getByRole('button', { name: /^Ampliar imagen/ }).count();
+  await page.getByRole('button', { name: 'El Arbolado', exact: true }).click();
+  await expect(page.getByRole('heading', { name: /Resultados/ })).toBeVisible();
+  const some = await page.getByRole('button', { name: /^Ampliar imagen/ }).count();
+  expect(some).toBeGreaterThan(0);
+  expect(some).toBeLessThan(all);
+  await page.getByRole('button', { name: 'Madera · Cross Back y vintage' }).click();
+  await expect(page.getByText(/No hay fotografías con esta combinación/)).toBeVisible();
+  await page.getByRole('button', { name: 'Quitar filtros' }).click();
+  await expect(page.getByRole('heading', { name: 'Arquitectura' })).toBeVisible();
 });
 
 test('inquiry form fails safely when email is not configured', async ({ page }) => {
@@ -60,8 +82,9 @@ test('inquiry form fails safely when email is not configured', async ({ page }) 
   const form = page.locator('form').first();
   await form.getByLabel(/Nombre/).fill('Prueba');
   await form.getByLabel('Correo').fill('prueba@example.com');
+  await form.getByLabel(/Inversión estimada/).selectOption('50-100');
   await form.getByLabel(/Fecha tentativa/).fill('2027-03-20');
-  await form.getByRole('button', { name: 'Enviar' }).click();
+  await form.getByRole('button', { name: /Solicitar visita privada/ }).click();
   await expect(form.getByRole('status')).toContainText(/WhatsApp/);
 });
 

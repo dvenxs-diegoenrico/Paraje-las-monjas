@@ -88,6 +88,22 @@ All current photos are placeholders extracted from the client's sample PDF (435�
 
 Direction: natural light, no HDR, restrained greens, no balloons or draped ceilings in frame, no signage, real people in motion. (Some placeholders show drapes and balloons; replace them first.)
 
+## Editorial positioning (from the high-end architecture brief)
+
+| Brief | How it is done here |
+|---|---|
+| Whitespace, restraint, full-bleed photography | Wide margins, 12-column grid, full-width heroes with the title set large over the photograph |
+| High-contrast serif + crisp sans | Newsreader for headlines, Hanken Grotesk for body, DM Mono for data |
+| Muted organic palette | Alabaster (cal), stone (piedra), deep forest (fronda), brick (tabique) |
+| Cinematic motion, slow fades | Ambient loop in the home hero (`public/video/hero-loop.mp4`, 17 s, 1.5 MB, built from the venue photos by `scripts/make_ambient_loop.py`); 700 ms page fades. The video only loads on wide screens after the page finishes loading, never with reduced motion or data-saver, and pauses off-screen. **Swap in real footage whenever it exists** (muted, 1280×720, < 3 MB); no code changes. |
+| Value-driven CTAs | “Solicitar una visita privada”, “Consultar fechas por WhatsApp”, “Recorrer el lugar” instead of “get a quote” |
+| Budget-qualifying form | Required **Inversión estimada del evento** (MXN ranges, plus “Aún no lo defino” so nobody is blocked). The ranges are placeholders: **confirm them with the client** (`form.budgets` in `content/*.ts`, `BUDGETS` in `lib/validators.ts`). The range is included in the email. |
+| Transparent process | Five phases on home, `/planear` and `/visita`: Consulta, Visita privada, Propuesta, Reserva, El día. Deposit and conditions are marked `[por confirmar]`. |
+| Filterable case studies | `/galeria` filters by space and table style. Tags live in `lib/images.ts` (`space`, `style`) and are set only for what is visible in each photo. |
+| Narrative storytelling | `/celebraciones#montajes`: two documented set-ups (Clásica, De madera) told as scene, table, materials, service. Real before/after stories need real celebrations and the families' permission. |
+| Partner credits | `partners` in `content/*.ts` (today only Irónico, the one documented partner). Add florists, photographers, planners with their links once confirmed. |
+| Press and accreditations near the top | `TrustBar` sits right under the hero. Its press strip reads `press.items` in `content/*.ts` and **stays hidden while that list is empty**. No awards or press are claimed because none are documented. |
+
 ## Logo kit
 
 `public/brand/`: `logo-vertical.svg`, `logo-horizontal.svg`, `mark.svg`, `logo-vertical-light.svg`, `logo-horizontal-light.svg`, `mark-light.svg`, `logo-mono.svg`, `logo-horizontal-mono.svg`, `mark-mono.svg`. Favicons: `app/icon.svg`, `app/apple-icon.png`, `app/favicon.ico`, `public/icon-192.png`, `public/icon-512.png`; OG image `public/og.png`.
@@ -125,6 +141,10 @@ Without the Resend variables the form **fails safely**: it validates, then tells
 | Price of sound system and of the Irónico bottle | rental catalogue on `/planear` |
 | Exact Facebook page URL | `lib/site.ts` (currently a search link) |
 | Night photography | gallery chapter *Noche* |
+| Budget ranges in the inquiry form | `form.budgets` |
+| Deposit and booking conditions | process phase 04 *Reserva* |
+| Press, awards, accreditations, partner links | `press`, `partners` in `content/*.ts` |
+| Real footage for the hero | `public/video/hero-loop.mp4` |
 | Final domain | `NEXT_PUBLIC_SITE_URL` |
 
 Never replace these with guesses: tree species, dimensions, plans, orientation, year built, roof/beam materials, accessibility features, awards or press are deliberately absent.

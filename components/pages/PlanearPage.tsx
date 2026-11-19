@@ -1,6 +1,6 @@
 import { Eyebrow } from '@/components/base/Typography';
 import { FAQ } from '@/components/content/FAQ';
-import { FactCards } from '@/components/content/Graphics';
+import { FactCards, HowItWorks } from '@/components/content/Graphics';
 import { Icon, type IconName } from '@/components/base/Icon';
 
 const COURSE_ICON: IconName[] = ['crema', 'pasta', 'plato', 'ensalada'];
@@ -40,6 +40,19 @@ export function PlanearPage({ locale }: { locale: Locale }) {
           ))}
         </ol>
       </nav>
+
+      {/* Proceso */}
+      <section className="py-20 lg:py-28" aria-labelledby="proceso-t">
+        <div className="container-lux">
+          <Eyebrow icon="catarina">{c.howItWorks.eyebrow}</Eyebrow>
+          <h2 id="proceso-t" className="t-h2 mt-6 max-w-[20ch]">
+            {c.howItWorks.title}
+          </h2>
+          <div className="mt-14">
+            <HowItWorks c={c.howItWorks} />
+          </div>
+        </div>
+      </section>
 
       {/* Capacidades */}
       <section id="capacidades" className="scroll-mt-24 py-20 lg:py-28" aria-labelledby="cap-t">

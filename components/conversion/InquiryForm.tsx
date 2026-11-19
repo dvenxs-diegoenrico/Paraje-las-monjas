@@ -109,6 +109,18 @@ export function InquiryForm({ locale, c, turnstileSiteKey, tone = 'dark' }: { lo
         <Field id={`${uid}-guests`} label={c.guests} error={msg(err.guests)} dark={onDark}>
           <input id={`${uid}-guests`} name="guests" type="number" min={1} max={2000} inputMode="numeric" defaultValue={v.guests} aria-invalid={!!err.guests} aria-describedby={err.guests ? `${uid}-guests-err` : undefined} placeholder=" " className={inputCls(onDark)} />
         </Field>
+        <Field id={`${uid}-budget`} label={c.budget} required error={msg(err.budget)} dark={onDark} float={false} hint={c.budgetHint} className="md:col-span-2">
+          <select id={`${uid}-budget`} name="budget" required defaultValue={v.budget ?? ''} aria-invalid={!!err.budget} aria-describedby={`${uid}-budget-hint${err.budget ? ` ${uid}-budget-err` : ''}`} className={`${inputCls(onDark)} appearance-none`}>
+            <option value="" disabled>
+              —
+            </option>
+            {c.budgets.map(([val, label]) => (
+              <option key={val} value={val} className="text-piedra">
+                {label}
+              </option>
+            ))}
+          </select>
+        </Field>
         <fieldset className="md:col-span-2">
           <legend className={`t-caption ${onDark ? 'text-cantera' : 'text-tabique'}`}>{c.visit}</legend>
           <div className="mt-3 flex flex-wrap gap-3">

@@ -1,6 +1,7 @@
 'use server';
 
 import { headers } from 'next/headers';
+import { es } from '@/content/es';
 import { inquirySchema, type FieldErrorKey, type InquiryState } from '@/lib/validators';
 
 /* ------------------------------------------------------------------
@@ -41,7 +42,7 @@ async function verifyTurnstile(token: string | null, ip: string) {
 const esc = (s: string) => s.replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]!);
 
 export async function submitInquiry(_prev: InquiryState, formData: FormData): Promise<InquiryState> {
-  const raw = Object.fromEntries(['locale', 'name', 'email', 'phone', 'type', 'guests', 'date', 'visit', 'message'].map((k) => [k, String(formData.get(k) ?? '')]));
+  const raw = Object.fromEntries(['locale', 'name', 'email', 'phone', 'type', 'guests', 'budget', 'date', 'visit', 'message'].map((k) => [k, String(formData.get(k) ?? '')]));
 
   // honeypot: humans never see or fill this field
   if (String(formData.get('company') ?? '').trim() !== '') return { status: 'success' };
@@ -55,7 +56,7 @@ export async function submitInquiry(_prev: InquiryState, formData: FormData): Pr
     const errors: InquiryState['errors'] = {};
     for (const issue of parsed.error.issues) {
       const key = (issue.path[0] === 'contact' ? 'contact' : issue.path[0]) as FieldErrorKey;
-      if (key && !errors[key]) errors[key] = (['name', 'contact', 'email', 'phone', 'date', 'guests'].includes(issue.message) ? issue.message : key) as FieldErrorKey;
+      if (key && !errors[key]) errors[key] = (['name', 'contact', 'email', 'phone', 'date', 'guests', 'budget'].includes(issue.message) ? issue.message : key) as FieldErrorKey;
     }
     return { status: 'error', errors, values: raw };
   }
@@ -79,6 +80,7 @@ export async function submitInquiry(_prev: InquiryState, formData: FormData): Pr
     ['Teléfono / WhatsApp', d.phone || '—'],
     ['Tipo de celebración', d.type ?? '—'],
     ['Invitados aproximados', d.guests === '' ? '—' : String(d.guests)],
+    ['Inversión estimada (MXN)', es.form.budgets.find(([k]) => k === d.budget)?.[1] ?? d.budget],
     ['Fecha tentativa', d.date],
     ['Preferencia de visita', d.visit ?? '—'],
     ['Idioma del sitio', d.locale],

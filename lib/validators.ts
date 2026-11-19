@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 export const CELEBRATION_TYPES = ['boda', 'boda-intima', 'familiar', 'jornada', 'otra'] as const;
+export const BUDGETS = ['lt-25', '25-50', '50-100', '100-250', '250-plus', 'undecided'] as const;
 export const VISIT_PREFS = ['entre-semana', 'sabado', 'sin-preferencia'] as const;
 
 const trimmed = (max: number) => z.string().trim().max(max);
@@ -14,6 +15,8 @@ export const inquirySchema = z
     phone: z.union([z.literal(''), z.string().trim().max(40).regex(/^[+\d][\d\s().-]{6,}$/, 'phone')]).default(''),
     type: z.enum(CELEBRATION_TYPES).optional().catch(undefined),
     guests: z.union([z.literal(''), z.coerce.number({ message: 'guests' }).int('guests').min(1, 'guests').max(2000, 'guests')]).default(''),
+    // refine (not enum) so a missing budget does not stop the other checks from reporting
+    budget: z.string().refine((v) => (BUDGETS as readonly string[]).includes(v), { message: 'budget' }),
     date: z.string().trim().regex(/^\d{4}-\d{2}-\d{2}$/, 'date'),
     visit: z.enum(VISIT_PREFS).optional().catch(undefined),
     message: trimmed(2000).default(''),
@@ -23,7 +26,7 @@ export const inquirySchema = z
   });
 
 export type Inquiry = z.infer<typeof inquirySchema>;
-export type FieldErrorKey = 'name' | 'contact' | 'email' | 'phone' | 'date' | 'guests';
+export type FieldErrorKey = 'name' | 'contact' | 'email' | 'phone' | 'date' | 'guests' | 'budget';
 
 export type InquiryState = {
   status: 'idle' | 'success' | 'error';

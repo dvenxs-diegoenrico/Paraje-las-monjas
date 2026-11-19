@@ -70,24 +70,26 @@ export function FactCards({ facts, dark = false }: { facts: Content['facts']; da
   );
 }
 
-/* ------------------------------------------------------------ how it works */
+/* ------------------------------------------------------------ process roadmap */
 export function HowItWorks({ c }: { c: Content['howItWorks'] }) {
   return (
     <div data-observe="">
       <div className="relative">
-        {/* the path that joins the steps draws itself */}
-        <svg aria-hidden="true" className="pointer-events-none absolute left-0 top-[28px] hidden h-10 w-full lg:block" viewBox="0 0 1000 40" preserveAspectRatio="none">
-          <path d="M60 20 C 200 -5, 300 45, 375 20 S 560 -5, 625 20 S 820 45, 940 20" fill="none" stroke="var(--cantera)" strokeWidth="1.25" strokeDasharray="0" pathLength={1} className="line-draw" vectorEffect="non-scaling-stroke" />
+        {/* the line that joins the phases draws itself */}
+        <svg aria-hidden="true" className="pointer-events-none absolute left-0 top-[84px] hidden h-10 w-full lg:block" viewBox="0 0 1000 40" preserveAspectRatio="none">
+          <path d="M100 20 C 200 0, 300 40, 500 20 S 800 0, 900 20" fill="none" stroke="var(--cantera)" strokeWidth="1.25" pathLength={1} className="line-draw" vectorEffect="non-scaling-stroke" />
         </svg>
-        <ol className="stagger relative grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ol className="stagger relative grid gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-6">
           {c.steps.map((s, i) => (
-            <li key={s.t} className="group relative flex flex-col items-start gap-5 lg:items-center lg:text-center">
+            <li key={s.t} className="group relative flex flex-col items-start gap-4 lg:items-center lg:text-center">
+              <span aria-hidden="true" className="font-serif text-[64px] font-light leading-none tracking-[-0.03em] text-cantera">
+                0{i + 1}
+              </span>
               <span className="live relative grid h-14 w-14 place-items-center rounded-full bg-cal-claro text-fronda shadow-lux ring-1 ring-cantera/60">
                 <Icon name={s.icon} size={28} />
-                <span className="t-caption absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-catarina text-[11px] text-cal-claro">{i + 1}</span>
               </span>
               <h3 className="font-serif text-[26px] leading-tight">{s.t}</h3>
-              <p className="max-w-[30ch] text-[15px] text-piedra/80">{s.d}</p>
+              <p className="max-w-[28ch] text-[15px] text-piedra/80">{s.d}</p>
             </li>
           ))}
         </ol>
