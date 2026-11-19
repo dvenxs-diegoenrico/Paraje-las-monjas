@@ -1,6 +1,5 @@
 import { ButtonA } from '@/components/base/Button';
 import { Eyebrow } from '@/components/base/Typography';
-import { Valance } from '@/components/base/Valance';
 import { PageHero } from '@/components/content/PageHero';
 import { HowItWorks } from '@/components/content/Graphics';
 import { Icon } from '@/components/base/Icon';
@@ -25,7 +24,6 @@ export function VisitaPage({ locale }: { locale: Locale }) {
         </div>
       </section>
       <section className="on-dark grain relative overflow-hidden bg-fronda py-24 text-cal lg:py-32" aria-label={c.form.title}>
-        <Valance color="var(--fronda)" />
         <div className="bricks pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden="true" />
         <div className="container-lux grid-lux relative gap-y-16">
           <div className="col-span-4 md:col-span-8 lg:col-span-7">
@@ -43,7 +41,6 @@ export function VisitaPage({ locale }: { locale: Locale }) {
         </div>
       </section>
       <section className="relative bg-cal py-24 lg:py-32" aria-labelledby="contacto">
-        <Valance color="var(--cal)" />
         <div className="container-lux grid-lux gap-y-12">
           <div className="col-span-4 md:col-span-4 lg:col-span-5">
             <h2 id="contacto" className="t-h2">

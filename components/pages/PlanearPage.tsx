@@ -1,5 +1,4 @@
 import { Eyebrow } from '@/components/base/Typography';
-import { Valance } from '@/components/base/Valance';
 import { FAQ } from '@/components/content/FAQ';
 import { FactCards } from '@/components/content/Graphics';
 import { Icon, type IconName } from '@/components/base/Icon';
@@ -27,7 +26,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(c.faq.items)) }} />
-      <PageHero locale={locale} eyebrow={p.eyebrow} title={p.title} intro={p.intro} backWord={locale === 'es' ? 'planear' : 'plan'} photo={images.mesaCristal} />
+      <PageHero locale={locale} eyebrow={p.eyebrow} title={p.title} intro={p.intro} backWord={locale === 'es' ? 'planear' : 'plan'} photo={images.salonPiedra} />
 
       <nav aria-label={p.eyebrow} className="container-lux">
         <ol className="t-nav flex flex-wrap gap-x-8 gap-y-2 border-y border-cantera/40 py-4">
@@ -64,7 +63,6 @@ export function PlanearPage({ locale }: { locale: Locale }) {
 
       {/* Paquetes */}
       <section id="paquetes" className="relative scroll-mt-24 bg-cal-claro py-20 lg:py-28" aria-labelledby="paq-t">
-        <Valance color="var(--cal-claro)" />
         <div className="container-lux">
           <Eyebrow icon="mesa">{c.offers.eyebrow}</Eyebrow>
           <h2 id="paq-t" className="t-h2 mt-6">
@@ -82,7 +80,6 @@ export function PlanearPage({ locale }: { locale: Locale }) {
 
       {/* Menú */}
       <section id="menu" className="relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby="menu-t">
-        <Valance color="var(--cal)" />
         <div className="container-lux grid-lux gap-y-12">
           <div className="col-span-4 md:col-span-3 lg:col-span-4">
             <Eyebrow icon="plato">{c.menu.eyebrow}</Eyebrow>
@@ -114,7 +111,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
               ))}
             </div>
             <p className="t-data mt-10 border-t border-cantera/40 pt-5">{c.menu.drinks}</p>
-            <div className="mt-10 bg-cal-claro p-6 md:p-8">
+            <div className="shadow-lux mt-10 bg-cal-claro p-6 md:p-8">
               <div className="flex flex-wrap items-baseline justify-between gap-4">
                 <h3 className="font-serif text-[28px]">{c.menu.kids.name}</h3>
                 <p className="t-data text-tabique">

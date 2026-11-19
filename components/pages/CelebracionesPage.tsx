@@ -16,7 +16,7 @@ export function CelebracionesPage({ locale }: { locale: Locale }) {
   const byId = Object.fromEntries(c.offers.items.map((o) => [o.id, o]));
   return (
     <>
-      <PageHero locale={locale} eyebrow={p.eyebrow} title={p.title} intro={p.intro} backWord={locale === 'es' ? 'celebrar' : 'celebrate'} photo={images.mesaMadera} />
+      <PageHero locale={locale} eyebrow={p.eyebrow} title={p.title} intro={p.intro} backWord={locale === 'es' ? 'celebrar' : 'celebrate'} photo={images.mesaCristal} />
       <nav aria-label={p.eyebrow} className="container-lux">
         <ul className="t-nav flex flex-wrap gap-x-8 gap-y-2 border-y border-cantera/40 py-4">
           {p.kinds.map((k) => (

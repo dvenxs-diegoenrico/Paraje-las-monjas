@@ -4,7 +4,6 @@ import { Gallery } from '@/components/media/Gallery';
 import { getContent } from '@/content';
 import type { Locale } from '@/lib/i18n';
 import { galleryChapters, images } from '@/lib/images';
-import { scallopMask } from '@/lib/scallop';
 import { Icon, type IconName } from '@/components/base/Icon';
 
 const CH_ICON: Record<string, IconName> = { arquitectura: 'arco', jardines: 'arbol', mesa: 'mesa', noche: 'luna' };
@@ -17,7 +16,6 @@ export function GaleriaPage({ locale }: { locale: Locale }) {
     name: p.chapters[ch.id].name,
     intro: p.chapters[ch.id].intro,
     photos: ch.photos,
-    masks: ch.photos.map((_, i) => scallopMask(i % 2 === 0 ? 'arch' : 'rect', i % 3 === 1 ? 3 / 4 : 4 / 5, 0.8)),
   }));
   return (
     <>

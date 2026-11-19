@@ -15,7 +15,6 @@ export const NAV: RouteKey[] = ['lugar', 'celebraciones', 'planear', 'galeria'];
 export function Header({ locale, c }: { locale: Locale; c: Pick<Content, 'nav' | 'a11y' | 'whatsappMessage'> }) {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   // the sheet belongs to the page it was opened on: navigating closes it
   const [openAt, setOpenAt] = useState<string | null>(null);
   const open = openAt === pathname;
@@ -25,7 +24,6 @@ export function Header({ locale, c }: { locale: Locale; c: Pick<Content, 'nav' |
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 8);
       if (Math.abs(y - last.current) > 6) {
         setHidden(y > last.current && y > 160);
         last.current = y;
@@ -43,7 +41,7 @@ export function Header({ locale, c }: { locale: Locale; c: Pick<Content, 'nav' |
         onFocusCapture={() => setHidden(false)}
       >
         <div
-          className={`absolute inset-0 bg-cal/92 backdrop-blur-[6px] transition-opacity duration-700 ease-lux ${scrolled ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 bg-cal/92 backdrop-blur-[6px] transition-opacity duration-700 ease-lux opacity-100`}
           aria-hidden="true"
         />
         <div className="container-lux relative flex h-[var(--header-h)] items-center justify-between gap-6">

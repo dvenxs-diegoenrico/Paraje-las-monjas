@@ -1,5 +1,4 @@
 import { Eyebrow } from '@/components/base/Typography';
-import { Valance } from '@/components/base/Valance';
 import { PageHero } from '@/components/content/PageHero';
 import { VisitCTA } from '@/components/conversion/VisitCTA';
 import { ScallopImage } from '@/components/media/ScallopImage';
@@ -64,7 +63,6 @@ export function LugarPage({ locale }: { locale: Locale }) {
       })}
 
       <section className="on-dark grain relative overflow-hidden bg-piedra py-28 text-cal lg:py-40" aria-labelledby="materiales">
-        <Valance color="var(--piedra)" />
         <div className="container-lux">
           <Reveal>
             <Eyebrow tone="cantera" icon="ladrillo">{c.materials.eyebrow}</Eyebrow>
@@ -89,7 +87,6 @@ export function LugarPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="relative bg-cal py-28 lg:py-36" aria-labelledby="monjas">
-        <Valance color="var(--cal)" />
         <div className="container-lux grid-lux items-center gap-y-10">
           <div className="col-span-1 md:col-span-2 lg:col-span-2 lg:col-start-2">
             <Mark className="w-full max-w-[140px]" />

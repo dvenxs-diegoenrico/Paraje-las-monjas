@@ -43,7 +43,7 @@ export function IconList({ items, cols = 2 }: { items: string[]; cols?: 1 | 2 })
     <ul data-observe="" className={`stagger grid gap-x-6 gap-y-3 ${cols === 2 ? 'md:grid-cols-2' : ''}`}>
       {items.map((it) => (
         <li key={it} className="group flex items-start gap-3 text-[15px] leading-snug">
-          <span className="mt-[-2px] grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cal text-fronda">
+          <span className="mt-[-2px] grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cal text-fronda shadow-lux">
             <Icon name={iconFor(it)} size={18} />
           </span>
           <span className="pt-1">{it}</span>
@@ -56,7 +56,7 @@ export function IconList({ items, cols = 2 }: { items: string[]; cols?: 1 | 2 })
 /* ------------------------------------------------------------ documented facts as cards */
 export function FactCards({ facts, dark = false }: { facts: Content['facts']; dark?: boolean }) {
   return (
-    <ul data-observe="" className="stagger grid grid-cols-2 gap-px overflow-hidden bg-cantera/40 md:grid-cols-3 lg:grid-cols-5 [&>li:last-child]:col-span-2 md:[&>li:last-child]:col-span-1">
+    <ul data-observe="" className="stagger shadow-lux grid grid-cols-2 gap-px overflow-hidden bg-cantera/40 md:grid-cols-3 lg:grid-cols-5 [&>li:last-child]:col-span-2 md:[&>li:last-child]:col-span-1">
       {facts.map((f) => (
         <li key={f.k} className={`group flex flex-col gap-4 p-5 lg:p-6 ${dark ? 'bg-piedra' : 'bg-cal'}`}>
           <span className={`grid h-12 w-12 place-items-center rounded-full ${dark ? 'bg-cal/10 text-cal' : 'bg-cal-claro text-fronda'}`}>
@@ -82,7 +82,7 @@ export function HowItWorks({ c }: { c: Content['howItWorks'] }) {
         <ol className="stagger relative grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {c.steps.map((s, i) => (
             <li key={s.t} className="group relative flex flex-col items-start gap-5 lg:items-center lg:text-center">
-              <span className="live relative grid h-14 w-14 place-items-center rounded-full bg-cal-claro text-fronda ring-1 ring-cantera/60">
+              <span className="live relative grid h-14 w-14 place-items-center rounded-full bg-cal-claro text-fronda shadow-lux ring-1 ring-cantera/60">
                 <Icon name={s.icon} size={28} />
                 <span className="t-caption absolute -right-1 -top-1 grid h-6 w-6 place-items-center rounded-full bg-catarina text-[11px] text-cal-claro">{i + 1}</span>
               </span>
@@ -99,7 +99,7 @@ export function HowItWorks({ c }: { c: Content['howItWorks'] }) {
 /* ------------------------------------------------------------ the four spaces, grouped */
 function SpaceGroup({ title, list, icon, base }: { title: string; list: Content['spaces']; icon: IconName; base: string }) {
   return (
-    <div className="relative flex-1 border border-cantera/50 bg-cal-claro/60 p-5 lg:p-6">
+    <div className="shadow-lux relative flex-1 border border-cantera/50 bg-cal-claro p-5 lg:p-6">
       <p className="t-eyebrow flex items-center gap-2 text-tabique">
         <Icon name={icon} size={18} /> {title}
       </p>

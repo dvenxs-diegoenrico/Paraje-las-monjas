@@ -19,6 +19,7 @@ pnpm test:e2e                 # Playwright smoke + axe (starts `pnpm start` on :
 
 | Idea | Where it lives |
 |---|---|
+| **Elegant hall, not a craft fair.** Plain rectangular photographs (no scalloped crops), full-bleed heroes with the headline set very large over the picture, and a **four-layer shadow** (`shadow-lux`, `shadow-lux-lg` in `globals.css`) on every button and block. Never fewer than four layers. | `Hero.tsx`, `PageHero.tsx`, `ScallopImage.tsx` (now a plain framed photo), `Button.tsx` |
 | **Three planes.** Colossal type at the back, the subject in the middle overlapping it, actions on top. | `components/content/Hero.tsx` (home) and `components/content/PageHero.tsx` (inner pages) |
 | **The subject breaks out.** El Arbolado's tree crowns are cut from the sky (`*-recorte.png`) and rise out of the arch over the headline. | `scripts/process_photos.py` makes the cut-out; `Hero.tsx` masks it so only the main crown escapes through the top of the arch |
 | **Scallops.** Every crop, button and section hem shares one bump language. | `lib/scallop.ts` (SVG geometry → CSS masks), `.scallop-x` / `.scallop-top` utilities in `app/globals.css`, `components/base/Valance.tsx` |

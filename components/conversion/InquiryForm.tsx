@@ -116,7 +116,7 @@ export function InquiryForm({ locale, c, turnstileSiteKey, tone = 'dark' }: { lo
               <label key={val} className="relative inline-flex min-h-[44px] cursor-pointer items-center">
                 <input type="radio" name="visit" value={val} defaultChecked={v.visit === val} className="peer absolute opacity-0" />
                 <span
-                  className={`scallop-x inline-flex h-[44px] items-center gap-2 px-6 text-[14px] transition-colors duration-500 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 ${
+                  className={`shadow-lux transition-shadow duration-700 hover:shadow-lux-lg inline-flex h-[44px] items-center gap-2 px-6 text-[14px] transition-colors duration-500 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 ${
                     onDark ? 'bg-cal/10 peer-checked:bg-cal peer-checked:text-piedra peer-focus-visible:outline-cantera' : 'bg-cantera/30 peer-checked:bg-piedra peer-checked:text-cal peer-focus-visible:outline-tabique'
                   }`}
                 >

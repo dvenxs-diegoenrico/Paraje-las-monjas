@@ -11,7 +11,7 @@ import { Icon, type IconName } from '@/components/base/Icon';
 
 const CHAPTER_ICON: Record<string, IconName> = { arquitectura: 'arco', jardines: 'arbol', mesa: 'mesa', noche: 'luna' };
 
-type Chapter = { id: string; name: string; intro: string; photos: Photo[]; masks: string[] };
+type Chapter = { id: string; name: string; intro: string; photos: Photo[] };
 type Labels = { prev: string; next: string; close: string; openImage: string };
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -48,7 +48,7 @@ export function Gallery({ chapters, locale, labels }: { chapters: Chapter[]; loc
                   <li key={p.id} className={`col-span-2 md:col-span-4 ${layouts[i % layouts.length]}`}>
                     <button type="button" onClick={() => setIndex(idx)} className="img-hover group block w-full text-left">
                       <span className="sr-only">{labels.openImage}: </span>
-                      <span className="block overflow-hidden" style={{ aspectRatio: i % 3 === 1 ? '3 / 4' : '4 / 5', WebkitMaskImage: ch.masks[i], maskImage: ch.masks[i], WebkitMaskSize: '100% 100%', maskSize: '100% 100%' }}>
+                      <span className="shadow-lux block overflow-hidden" style={{ aspectRatio: i % 3 === 1 ? '3 / 4' : '4 / 5' }}>
                         <Image src={p.src} width={p.width} height={p.height} alt={p.alt[locale]} sizes="(min-width:1024px) 40vw, 50vw" placeholder={p.blurDataURL ? 'blur' : 'empty'} blurDataURL={p.blurDataURL} className="h-full w-full object-cover" style={{ objectPosition: p.focus }} />
                       </span>
                       <span className="t-caption mt-3 block text-piedra/70">{p.caption[locale]}</span>

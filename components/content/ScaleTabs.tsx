@@ -82,7 +82,7 @@ export function ScaleTabs({ scales, label, footnote, spacesLabel, offerLabel, le
                 <dt className="text-tabique">{spacesLabel}</dt>
                 <dd className="mt-2 flex flex-wrap gap-2">
                   {s.spaces.map((sp) => (
-                    <span key={sp} className="inline-flex items-center gap-2 rounded-full bg-cal-claro py-1 pl-1 pr-3">
+                    <span key={sp} className="inline-flex items-center gap-2 shadow-lux rounded-full bg-cal-claro py-1 pl-1 pr-3">
                       <span className="grid h-7 w-7 place-items-center rounded-full bg-fronda text-cal">
                         <Icon name={spaceIcon(sp)} size={16} draw={false} />
                       </span>

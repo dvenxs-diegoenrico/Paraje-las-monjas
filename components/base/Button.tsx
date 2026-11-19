@@ -11,8 +11,8 @@ const tones: Record<Tone, { base: string; sweep: string; dot: string }> = {
 };
 
 /**
- * Primary button: square body with scalloped ends (same bump language as the
- * image crops). Hover: a fill rises from the base over 700ms.
+ * Primary button: square, four-layer shadow. Hover: a fill rises from the base
+ * over 700ms and the shadow deepens.
  */
 function Inner({ children, tone, dot, icon }: { children: ReactNode; tone: Tone; dot?: boolean; icon?: IconName }) {
   const t = tones[tone];
@@ -29,7 +29,7 @@ function Inner({ children, tone, dot, icon }: { children: ReactNode; tone: Tone;
 }
 
 const cls = (tone: Tone, extra = '') =>
-  `group scallop-x relative inline-flex h-[52px] min-w-[44px] items-center justify-center overflow-hidden px-8 font-sans text-[13px] font-semibold uppercase tracking-[0.08em] whitespace-nowrap ${tones[tone].base} ${extra}`;
+  `group shadow-lux transition-shadow duration-700 hover:shadow-lux-lg relative inline-flex h-[52px] min-w-[44px] items-center justify-center overflow-hidden px-8 font-sans text-[13px] font-semibold uppercase tracking-[0.08em] whitespace-nowrap ${tones[tone].base} ${extra}`;
 
 export function ButtonLink({
   tone = 'piedra',

@@ -18,7 +18,6 @@
   --gutter: 20px;
   --margin: 20px;
   --header-h: 72px;
-  --scallop: 6.5px;
 }
 
 @media (min-width: 768px) {
@@ -203,29 +202,29 @@ img {
 }
 
 /* ------------------------------------------------------------------
-   Scalloped button: square body, scalloped ends (4 bumps at 52px)
+   Four-layer shadow: contact, near, mid, far. Never fewer than four.
    ------------------------------------------------------------------ */
-@utility scallop-x {
-  --r: var(--scallop);
-  -webkit-mask:
-    radial-gradient(circle at 100% 50%, #000 calc(var(--r) - 0.5px), #0000 var(--r)) left / var(--r) calc(var(--r) * 2) repeat-y,
-    radial-gradient(circle at 0% 50%, #000 calc(var(--r) - 0.5px), #0000 var(--r)) right / var(--r) calc(var(--r) * 2) repeat-y,
-    linear-gradient(#000 0 0) center / calc(100% - var(--r) * 2 + 1px) 100% no-repeat;
-  mask:
-    radial-gradient(circle at 100% 50%, #000 calc(var(--r) - 0.5px), #0000 var(--r)) left / var(--r) calc(var(--r) * 2) repeat-y,
-    radial-gradient(circle at 0% 50%, #000 calc(var(--r) - 0.5px), #0000 var(--r)) right / var(--r) calc(var(--r) * 2) repeat-y,
-    linear-gradient(#000 0 0) center / calc(100% - var(--r) * 2 + 1px) 100% no-repeat;
+@utility shadow-lux {
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--piedra) 14%, transparent),
+    0 4px 8px color-mix(in srgb, var(--piedra) 12%, transparent),
+    0 14px 28px color-mix(in srgb, var(--piedra) 12%, transparent),
+    0 32px 64px color-mix(in srgb, var(--piedra) 14%, transparent);
 }
-
-/* scalloped top hem for full-bleed images, pixel-true at any ratio */
-@utility scallop-top {
-  --r: 14px;
-  -webkit-mask:
-    radial-gradient(circle at 50% 100%, #000 calc(var(--r) - 0.5px), #0000 var(--r)) top / calc(var(--r) * 2) var(--r) round no-repeat,
-    linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--r) + 1px) no-repeat;
-  mask:
-    radial-gradient(circle at 50% 100%, #000 calc(var(--r) - 0.5px), #0000 var(--r)) top / calc(var(--r) * 2) var(--r) round no-repeat,
-    linear-gradient(#000 0 0) bottom / 100% calc(100% - var(--r) + 1px) no-repeat;
+@utility shadow-lux-lg {
+  box-shadow:
+    0 2px 3px color-mix(in srgb, var(--piedra) 16%, transparent),
+    0 8px 14px color-mix(in srgb, var(--piedra) 14%, transparent),
+    0 22px 40px color-mix(in srgb, var(--piedra) 14%, transparent),
+    0 48px 96px color-mix(in srgb, var(--piedra) 18%, transparent);
+}
+/* on dark grounds the same four layers need more weight to read */
+.on-dark .shadow-lux {
+  box-shadow:
+    0 1px 2px color-mix(in srgb, #000 30%, transparent),
+    0 4px 8px color-mix(in srgb, #000 26%, transparent),
+    0 14px 28px color-mix(in srgb, #000 24%, transparent),
+    0 32px 64px color-mix(in srgb, #000 28%, transparent);
 }
 
 /* growing underline for text links */
@@ -283,9 +282,6 @@ img {
   to {
     transform: rotate(360deg);
   }
-}
-.spin-slow {
-  animation: slow-spin 60s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

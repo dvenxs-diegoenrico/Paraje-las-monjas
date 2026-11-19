@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { TextLink } from '@/components/base/Button';
 import { Eyebrow } from '@/components/base/Typography';
-import { Valance } from '@/components/base/Valance';
 import { CrossFade } from '@/components/content/CrossFade';
 import { Hero } from '@/components/content/Hero';
 import { EditorialTriptych, GalleryMosaic, Manifesto, Philosophy, SpacesShowcase } from '@/components/content/HomeSections';
@@ -9,28 +8,25 @@ import { ScaleTabs } from '@/components/content/ScaleTabs';
 import { FactCards, HowItWorks } from '@/components/content/Graphics';
 import { Icon } from '@/components/base/Icon';
 import { VisitCTA } from '@/components/conversion/VisitCTA';
-import { scallopStyle } from '@/components/media/ScallopImage';
 import { Reveal } from '@/components/motion/Reveal';
 import { getContent } from '@/content';
 import { href, type Locale } from '@/lib/i18n';
 import { images } from '@/lib/images';
-import { scallopMask } from '@/lib/scallop';
 
 export function HomePage({ locale }: { locale: Locale }) {
   const c = getContent(locale);
   const h = c.home;
   return (
     <>
-      <Hero locale={locale} c={h.hero} archMask={scallopMask('arch', 1 / 1.3, 1)} sealMask={scallopMask('circle', 1, 1.6)} />
+      <Hero locale={locale} c={h.hero} />
       <Manifesto c={h.manifesto} />
       <SpacesShowcase locale={locale} c={h.lugar} spaces={c.spaces} groups={c.spacesGroups} />
       <EditorialTriptych locale={locale} c={h.editorial} />
 
       {/* 5 · Adentro y afuera */}
       <section className="on-dark relative bg-fronda py-28 text-cal lg:py-40" aria-labelledby="adentro">
-        <Valance color="var(--fronda)" />
         <div className="container-lux grid-lux items-center gap-y-14">
-          <div className="col-span-4 md:col-span-8 lg:col-span-5">
+          <div className="col-span-4 md:col-span-8 lg:col-span-4">
             <Reveal>
               <Eyebrow tone="cantera" icon="pabellon">{h.adentro.eyebrow}</Eyebrow>
             </Reveal>
@@ -53,11 +49,11 @@ export function HomePage({ locale }: { locale: Locale }) {
               <TextLink href={href(locale, 'lugar', 'pabellon-de-cristal')}>{h.adentro.link}</TextLink>
             </div>
           </div>
-          <div className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-5 lg:col-start-8">
+          <div className="col-span-4 md:col-span-8 lg:col-span-8 lg:col-start-5">
             <CrossFade
-              className="aspect-[4/5] w-full"
+              className="shadow-lux aspect-[4/5] w-full md:aspect-[4/3]"
               slides={[images.pabellonCristal, images.mesaCristal].map((p, i) => (
-                <div key={p.id} className="h-full w-full" style={scallopStyle('arch', '4:5', 0.9)}>
+                <div key={p.id} className="h-full w-full">
                   <Image src={p.src} width={p.width} height={p.height} alt={i === 0 ? p.alt[locale] : ''} sizes="(min-width:1024px) 40vw, 90vw" placeholder="blur" blurDataURL={p.blurDataURL} className="h-full w-full object-cover" />
                 </div>
               ))}
@@ -69,7 +65,6 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       {/* 6 · Capacidades */}
       <section className="relative bg-cal py-28 lg:py-40" aria-labelledby="capacidades">
-        <Valance color="var(--cal)" />
         <div className="container-lux grid-lux gap-y-14">
           <div className="col-span-4 md:col-span-8 lg:col-span-4">
             <Reveal>
