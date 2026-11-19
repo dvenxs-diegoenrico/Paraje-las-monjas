@@ -8,12 +8,12 @@ export const en: Content = {
     siteName: 'Paraje Las Monjas',
     descriptor: 'Garden · Atlixco, Puebla',
     description:
-      'A garden cared for, in Atlixco, Puebla. Brick, stone and lime architecture, a glass pavilion and two gardens for weddings, intimate weddings, family celebrations and workdays.',
+      'A garden cared for, in Atlixco, Puebla. Brick, stone and lime architecture, a glass pavilion and two gardens for weddings, petite weddings, family celebrations and workdays.',
     pages: {
       home: { title: 'Paraje Las Monjas · A garden cared for, in Atlixco', description: '' },
       lugar: { title: 'The place', description: 'Hall of Pillars, Glass Pavilion, El Arbolado and La Pradera: the four spaces of Paraje Las Monjas in Atlixco.' },
-      celebraciones: { title: 'Celebrations', description: 'Weddings, intimate weddings, family celebrations and workdays in a garden in Atlixco, Puebla.' },
-      planear: { title: 'Plan', description: 'Packages, included services, menu, furniture and frequently asked questions for planning your celebration at Paraje Las Monjas.' },
+      celebraciones: { title: 'Celebrations', description: 'Weddings, petite weddings, family celebrations and workdays in a garden in Atlixco, Puebla.' },
+      planear: { title: 'Plan', description: 'Packages, included services, menu and frequently asked questions for planning your celebration at Paraje Las Monjas.' },
       galeria: { title: 'Gallery', description: 'Architecture, gardens, table and night: photographs of Paraje Las Monjas.' },
       visita: { title: 'Request a private visit', description: 'Request a private visit to Paraje Las Monjas, a garden in Atlixco, Puebla.' },
       privacidad: { title: 'Privacy notice', description: 'Privacy notice of Paraje Las Monjas.' },
@@ -165,7 +165,7 @@ export const en: Content = {
       title: 'One long table',
       text: 'A ceremony in El Arbolado and dinner in the Glass Pavilion, everyone around a single table.',
       spaces: ['El Arbolado', 'Glass Pavilion'],
-      offer: 'Intimate weddings (30 to 50 guests) or Long table with Irónico mezcal',
+      offer: 'Petite weddings (30 to 50 guests) or Long table with Irónico mezcal',
     },
     {
       id: '150',
@@ -191,9 +191,9 @@ export const en: Content = {
     steps: [
       { icon: 'chat' as const, t: 'Consultation', d: 'Tell us a tentative date, guests and type of celebration, on WhatsApp or with the form.' },
       { icon: 'calendario' as const, t: 'Private visit', d: 'Walk the four spaces with the garden’s coordination team, on a weekday or Saturday morning.' },
-      { icon: 'mesa' as const, t: 'Proposal', d: 'We choose the package, the menu and the furniture from the catalogue. Quotes are requested on WhatsApp.' },
+      { icon: 'mesa' as const, t: 'Proposal', d: 'We choose the package, the menu and the details of the table. Quotes are requested on WhatsApp.' },
       { icon: 'sobre' as const, t: 'Booking', d: 'The date is secured. Deposit and conditions [to be confirmed].' },
-      { icon: 'brindis' as const, t: 'The day', d: 'The garden set and ready, with waiters according to the package; for intimate weddings, a day-of coordinator.' },
+      { icon: 'brindis' as const, t: 'The day', d: 'The garden set and ready, with waiters according to the package; for petite weddings, a day-of coordinator.' },
     ],
   },
   spacesGroups: { roof: 'Under a roof', open: 'In the open air', caption: 'Four spaces you can walk between.' },
@@ -203,8 +203,8 @@ export const en: Content = {
     eyebrow: 'Documented assurances',
     items: [
       { icon: 'escudo' as const, t: 'Private parking', d: 'With security staff in every package.' },
-      { icon: 'personas' as const, t: 'Table service', d: '1 waiter per 15 guests for intimate weddings and 1 per 20 for Garden served.' },
-      { icon: 'reloj' as const, t: 'Day-of coordinator', d: 'Included in intimate weddings.' },
+      { icon: 'personas' as const, t: 'Table service', d: '1 waiter per 15 guests for petite weddings and 1 per 20 for Garden served.' },
+      { icon: 'reloj' as const, t: 'Day-of coordinator', d: 'Included in petite weddings.' },
       { icon: 'bano' as const, t: 'Four restrooms', d: 'With paper, soap and hand towels.' },
     ],
   },
@@ -215,7 +215,7 @@ export const en: Content = {
     title: 'With those who care for the table.',
     intro: 'Houses and crafts that are part of our packages.',
     items: [
-      { name: 'Irónico', role: 'Artisanal mezcal', note: 'One bottle per table in the Irónico package and a mezcalina for the toast at the Wooden intimate wedding.' },
+      { name: 'Irónico', role: 'Artisanal mezcal', note: 'One bottle per table in the Irónico package and a mezcalina for the toast at the Wooden petite wedding.' },
     ],
   },
   montajes: {
@@ -227,7 +227,7 @@ export const en: Content = {
     items: [
       {
         id: 'clasica',
-        name: 'Intimate wedding · Classic',
+        name: 'Petite wedding · Classic',
         image: 'salonPilares',
         price: 709,
         scene: 'Civil ceremony in the garden with a foliage and flower arch; dinner in the hall.',
@@ -237,7 +237,7 @@ export const en: Content = {
       },
       {
         id: 'madera',
-        name: 'Intimate wedding · Wooden',
+        name: 'Petite wedding · Wooden',
         image: 'mesaLarga',
         price: 919,
         scene: 'Civil ceremony in the garden with a foliage and fresh-flower arch; dinner in the hall.',
@@ -254,7 +254,7 @@ export const en: Content = {
     { icon: 'auto' as const, k: 'Parking', v: 'Private, with security staff' },
     { icon: 'flama' as const, k: 'Kitchen', v: 'With gas and two work tables, cooling tubs (rental packages)' },
     { icon: 'reloj' as const, k: 'Service', v: '7 or 8 hours depending on the package' },
-    { icon: 'personas' as const, k: 'Minimums', v: '50 guests · intimate weddings 30 to 50 · workdays from 25' },
+    { icon: 'personas' as const, k: 'Minimums', v: '50 guests · petite weddings 30 to 50 · workdays from 25' },
   ],
 
   offers: {
@@ -348,8 +348,8 @@ export const en: Content = {
         terms: '7 hours of service · minimum 50 guests',
       },
       {
-        id: 'bodas-intimas',
-        name: 'Intimate weddings',
+        id: 'bodas-petite',
+        name: 'Petite weddings',
         tagline: 'A civil ceremony in the garden and a served dinner, for 30 to 50 guests.',
         variants: [
           {
@@ -434,7 +434,7 @@ export const en: Content = {
   celebraciones: {
     eyebrow: 'Celebrations',
     title: 'Every celebration has its scale.',
-    intro: 'Weddings, intimate weddings, family gatherings and workdays. The garden is the same; the table and the time change.',
+    intro: 'Weddings, petite weddings, family gatherings and workdays. The garden is the same; the table and the time change.',
     kinds: [
       {
         id: 'bodas',
@@ -444,10 +444,10 @@ export const en: Content = {
         image: 'salonPilares',
       },
       {
-        id: 'bodas-intimas',
-        name: 'Intimate weddings',
+        id: 'bodas-petite',
+        name: 'Petite weddings',
         text: 'For 30 to 50 guests, with a civil ceremony in the garden, a three-course dinner and a day-of coordinator.',
-        offers: ['bodas-intimas'],
+        offers: ['bodas-petite'],
         image: 'mesaLarga',
       },
       {
@@ -489,103 +489,17 @@ export const en: Content = {
     },
   },
 
-  catalogue: {
-    eyebrow: 'Rental catalogue',
-    title: 'Linens, tableware, glassware and furniture.',
-    note: 'Prices per event, subject to availability. Ask for a quote on WhatsApp.',
-    groups: [
-      {
-        name: 'Linens',
-        items: [
-          ['Round tablecloth', '$60'],
-          ['Overlay', '$20'],
-          ['Pink linen tablecloth', '$100'],
-          ['Beige linen tablecloth', '$100'],
-          ['Beige gauze table runners', '$60'],
-          ['Cloth napkins', '$9'],
-        ],
-      },
-      {
-        name: 'Tableware',
-        items: [
-          ['Dinner plate', '$7.50'],
-          ['Soup plate', '$7.50'],
-          ['Salad plate', '$8'],
-          ['Dessert plate', '$8'],
-          ['Clay dinner plate', '$10'],
-          ['Clay soup plate', '$10'],
-          ['Black dinner plate', '$10'],
-          ['Black soup plate', '$10'],
-          ['Black salad plate', '$10'],
-          ['White cups', '$8'],
-          ['Soup tureen', '$100'],
-          ['Chafing dish', '$50'],
-          ['Coffee pots', '$80'],
-          ['Sugar bowls with sugar', '$10'],
-        ],
-      },
-      {
-        name: 'Cutlery',
-        items: [
-          ['Silver spoon, fork or knife', '$5.50 each'],
-          ['Gold spoon, fork or knife', '$12 each'],
-        ],
-      },
-      {
-        name: 'Glassware',
-        items: [
-          ['Highball glass', '$7'],
-          ['Wine glass', '$12'],
-          ['Flute', '$12'],
-          ['Pink diamond glass', '$15'],
-          ['Smoke diamond glass', '$15'],
-          ['Glass jugs', '$35'],
-        ],
-      },
-      {
-        name: 'Table service',
-        items: [
-          ['Napkin holders', '$5 · free when renting tableware'],
-          ['Sauce bowls', '$5 · free when renting tableware'],
-          ['Salt shakers', '$5 · free when renting tableware'],
-          ['Tortilla warmers', '$5 · free when renting tableware'],
-        ],
-      },
-      {
-        name: 'Furniture',
-        items: [
-          ['Tiffany chairs', '$25'],
-          ['Cross Back chairs', '$45'],
-          ['Black padded chairs', '$10'],
-          ['Vintage wooden tables', '$300'],
-          ['White tripod', '$100'],
-          ['Inflatables package', '$1,600'],
-          ['Sound system', '[to be confirmed]'],
-          ['Bottle of Irónico artisanal mezcal', '[to be confirmed]'],
-        ],
-      },
-      {
-        name: 'Flowers',
-        items: [
-          ['Round arrangement · foliage, gerberas, lisianthus and carnation', '$250'],
-          ['Tall arrangement · foliage, roses, carnation and snapdragons', '$300'],
-          ['Head-table arrangement · logs with natural moss, roses, lisianthus', '$350'],
-        ],
-      },
-    ],
-  },
-
   faq: {
     eyebrow: 'Frequently asked',
     title: 'What people usually ask us.',
     items: [
       {
         q: 'How many hours of service does each package include?',
-        a: 'Seven hours for Garden rental, Long table with Irónico mezcal and Intimate weddings; eight hours for Garden served. Workdays are half day (5 hours) or full day (8 hours).',
+        a: 'Seven hours for Garden rental, Long table with Irónico mezcal and Petite weddings; eight hours for Garden served. Workdays are half day (5 hours) or full day (8 hours).',
       },
       {
         q: 'Is there a minimum number of guests?',
-        a: 'Celebration packages are for a minimum of 50 guests. Intimate weddings are for 30 to 50 guests, and workdays start at 25.',
+        a: 'Celebration packages are for a minimum of 50 guests. Petite weddings are for 30 to 50 guests, and workdays start at 25.',
       },
       {
         q: 'What does the garden rental include?',
@@ -602,10 +516,6 @@ export const en: Content = {
       {
         q: 'How many restrooms are there?',
         a: 'Four: two for women and two for men, with toilet paper, soap and hand towels.',
-      },
-      {
-        q: 'What furniture can I rent?',
-        a: 'Linen tablecloths, white, black and clay tableware, silver or gold cutlery, glassware, Tiffany, Cross Back and black padded chairs, vintage wooden tables, flower arrangements, a white tripod and an inflatables package. Prices are in the rental catalogue.',
       },
       {
         q: 'How does the menu work?',
@@ -632,7 +542,7 @@ export const en: Content = {
     type: 'Type of celebration',
     types: [
       ['boda', 'Wedding'],
-      ['boda-intima', 'Intimate wedding'],
+      ['boda-petite', 'Petite wedding'],
       ['familiar', 'Family'],
       ['jornada', 'Workday'],
       ['otra', 'Other'],
@@ -711,8 +621,8 @@ export const en: Content = {
   planearPage: {
     eyebrow: 'Plan',
     title: 'Everything you need to plan.',
-    intro: 'Packages, included services, menu, furniture and answers to frequent questions. If something is missing, ask us.',
-    toc: ['Capacity', 'Packages', 'Menu', 'Furniture', 'Questions'],
+    intro: 'Packages, included services, menu and answers to frequent questions. If something is missing, ask us.',
+    toc: ['Capacity', 'Packages', 'Menu', 'Questions'],
     includedTitle: 'Included in every package',
   },
 

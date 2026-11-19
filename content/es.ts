@@ -12,12 +12,12 @@ export const es = {
     siteName: 'Paraje Las Monjas',
     descriptor: 'Jardín · Atlixco, Puebla',
     description:
-      'Un jardín cuidado en Atlixco, Puebla. Arquitectura de tabique, piedra y cal, un pabellón de cristal y dos jardines para bodas, bodas íntimas, celebraciones familiares y jornadas.',
+      'Un jardín cuidado en Atlixco, Puebla. Arquitectura de tabique, piedra y cal, un pabellón de cristal y dos jardines para bodas, bodas petite, celebraciones familiares y jornadas.',
     pages: {
       home: { title: 'Paraje Las Monjas · Un jardín cuidado en Atlixco', description: '' },
       lugar: { title: 'El lugar', description: 'Salón de Pilares, Pabellón de Cristal, El Arbolado y La Pradera: los cuatro espacios de Paraje Las Monjas en Atlixco.' },
-      celebraciones: { title: 'Celebraciones', description: 'Bodas, bodas íntimas, celebraciones familiares y jornadas de trabajo en un jardín de Atlixco, Puebla.' },
-      planear: { title: 'Planear', description: 'Paquetes, servicios incluidos, menú, mobiliario y preguntas frecuentes para planear tu celebración en Paraje Las Monjas.' },
+      celebraciones: { title: 'Celebraciones', description: 'Bodas, bodas petite, celebraciones familiares y jornadas de trabajo en un jardín de Atlixco, Puebla.' },
+      planear: { title: 'Planear', description: 'Paquetes, servicios incluidos, menú y preguntas frecuentes para planear tu celebración en Paraje Las Monjas.' },
       galeria: { title: 'Galería', description: 'Arquitectura, jardines, mesa y noche: fotografías de Paraje Las Monjas.' },
       visita: { title: 'Solicitar una visita privada', description: 'Solicita una visita privada a Paraje Las Monjas, jardín en Atlixco, Puebla.' },
       privacidad: { title: 'Aviso de privacidad', description: 'Aviso de privacidad de Paraje Las Monjas.' },
@@ -169,7 +169,7 @@ export const es = {
       title: 'Una mesa larga',
       text: 'Ceremonia en El Arbolado y banquete en el Pabellón de Cristal, todos alrededor de una misma mesa.',
       spaces: ['El Arbolado', 'Pabellón de Cristal'],
-      offer: 'Bodas íntimas (30 a 50 personas) o Mesa larga con mezcal Irónico',
+      offer: 'Bodas petite (30 a 50 personas) o Mesa larga con mezcal Irónico',
     },
     {
       id: '150',
@@ -195,9 +195,9 @@ export const es = {
     steps: [
       { icon: 'chat' as const, t: 'Consulta', d: 'Cuéntanos fecha tentativa, invitados y tipo de celebración, por WhatsApp o con el formulario.' },
       { icon: 'calendario' as const, t: 'Visita privada', d: 'Recorre los cuatro espacios con la coordinación del jardín, entre semana o el sábado por la mañana.' },
-      { icon: 'mesa' as const, t: 'Propuesta', d: 'Elegimos el paquete, el menú y el mobiliario del catálogo. Las cotizaciones se piden por WhatsApp.' },
+      { icon: 'mesa' as const, t: 'Propuesta', d: 'Elegimos el paquete, el menú y los detalles de la mesa. Las cotizaciones se piden por WhatsApp.' },
       { icon: 'sobre' as const, t: 'Reserva', d: 'Se aparta la fecha. Anticipo y condiciones [por confirmar].' },
-      { icon: 'brindis' as const, t: 'El día', d: 'El jardín montado y listo, con meseros según el paquete; en bodas íntimas, coordinadora del día.' },
+      { icon: 'brindis' as const, t: 'El día', d: 'El jardín montado y listo, con meseros según el paquete; en bodas petite, coordinadora del día.' },
     ],
   },
   spacesGroups: { roof: 'Bajo techo', open: 'Al aire libre', caption: 'Cuatro espacios que se recorren a pie.' },
@@ -207,8 +207,8 @@ export const es = {
     eyebrow: 'Respaldo documentado',
     items: [
       { icon: 'escudo' as const, t: 'Estacionamiento privado', d: 'Con personal de vigilancia en todos los paquetes.' },
-      { icon: 'personas' as const, t: 'Atención en mesa', d: '1 mesero por cada 15 invitados en bodas íntimas y 1 por cada 20 en Jardín servido.' },
-      { icon: 'reloj' as const, t: 'Coordinadora del día', d: 'Incluida en las bodas íntimas.' },
+      { icon: 'personas' as const, t: 'Atención en mesa', d: '1 mesero por cada 15 invitados en bodas petite y 1 por cada 20 en Jardín servido.' },
+      { icon: 'reloj' as const, t: 'Coordinadora del día', d: 'Incluida en las bodas petite.' },
       { icon: 'bano' as const, t: 'Cuatro baños', d: 'Con papel, jabón y toallas para manos.' },
     ],
   },
@@ -219,7 +219,7 @@ export const es = {
     title: 'Con quienes cuidamos la mesa.',
     intro: 'Casas y oficios que forman parte de nuestros paquetes.',
     items: [
-      { name: 'Irónico', role: 'Mezcal artesanal', note: 'Una botella por mesa en el paquete Irónico y mezcalina en el brindis de la boda íntima De madera.' },
+      { name: 'Irónico', role: 'Mezcal artesanal', note: 'Una botella por mesa en el paquete Irónico y mezcalina en el brindis de la boda petite De madera.' },
     ],
   },
   montajes: {
@@ -231,7 +231,7 @@ export const es = {
     items: [
       {
         id: 'clasica',
-        name: 'Boda íntima · Clásica',
+        name: 'Boda petite · Clásica',
         image: 'salonPilares',
         price: 709,
         scene: 'Ceremonia civil en el jardín, con arco de follaje y flores; banquete en el salón.',
@@ -241,7 +241,7 @@ export const es = {
       },
       {
         id: 'madera',
-        name: 'Boda íntima · De madera',
+        name: 'Boda petite · De madera',
         image: 'mesaLarga',
         price: 919,
         scene: 'Ceremonia civil en el jardín, con arco de follaje y flores naturales; banquete en el salón.',
@@ -258,7 +258,7 @@ export const es = {
     { icon: 'auto' as const, k: 'Estacionamiento', v: 'Privado, con personal de vigilancia' },
     { icon: 'flama' as const, k: 'Cocina', v: 'Con gas y dos mesas de trabajo, tinas para enfriar (paquetes de renta)' },
     { icon: 'reloj' as const, k: 'Servicio', v: '7 u 8 horas según paquete' },
-    { icon: 'personas' as const, k: 'Mínimos', v: '50 invitados · bodas íntimas de 30 a 50 · jornadas desde 25' },
+    { icon: 'personas' as const, k: 'Mínimos', v: '50 invitados · bodas petite de 30 a 50 · jornadas desde 25' },
   ],
 
   offers: {
@@ -352,8 +352,8 @@ export const es = {
         terms: '7 horas de servicio · mínimo 50 personas',
       },
       {
-        id: 'bodas-intimas',
-        name: 'Bodas íntimas',
+        id: 'bodas-petite',
+        name: 'Bodas petite',
         tagline: 'Ceremonia civil en el jardín y banquete servido, de 30 a 50 invitados.',
         variants: [
           {
@@ -438,7 +438,7 @@ export const es = {
   celebraciones: {
     eyebrow: 'Celebraciones',
     title: 'Cada celebración tiene su escala.',
-    intro: 'Bodas, bodas íntimas, reuniones familiares y jornadas de trabajo. El jardín es el mismo; cambia la mesa y el tiempo.',
+    intro: 'Bodas, bodas petite, reuniones familiares y jornadas de trabajo. El jardín es el mismo; cambia la mesa y el tiempo.',
     kinds: [
       {
         id: 'bodas',
@@ -448,10 +448,10 @@ export const es = {
         image: 'salonPilares',
       },
       {
-        id: 'bodas-intimas',
-        name: 'Bodas íntimas',
+        id: 'bodas-petite',
+        name: 'Bodas petite',
         text: 'De 30 a 50 invitados, con ceremonia civil en el jardín, banquete de tres tiempos y coordinadora del día.',
-        offers: ['bodas-intimas'],
+        offers: ['bodas-petite'],
         image: 'mesaLarga',
       },
       {
@@ -493,103 +493,17 @@ export const es = {
     },
   },
 
-  catalogue: {
-    eyebrow: 'Catálogo de renta',
-    title: 'Mantelería, loza, cristalería y mobiliario.',
-    note: 'Precios por evento, sujetos a disponibilidad. Cotiza por WhatsApp.',
-    groups: [
-      {
-        name: 'Mantelería',
-        items: [
-          ['Mantel redondo', '$60'],
-          ['Cubre mantel', '$20'],
-          ['Mantel rosa de lino', '$100'],
-          ['Mantel beige de lino', '$100'],
-          ['Caminos de mesa de gasa beige', '$60'],
-          ['Servilletas de tela', '$9'],
-        ],
-      },
-      {
-        name: 'Loza',
-        items: [
-          ['Plato extendido', '$7.50'],
-          ['Plato hondo', '$7.50'],
-          ['Plato de ensalada', '$8'],
-          ['Plato de postre', '$8'],
-          ['Plato extendido de barro', '$10'],
-          ['Plato hondo de barro', '$10'],
-          ['Plato negro extendido', '$10'],
-          ['Plato negro hondo', '$10'],
-          ['Plato negro para ensalada', '$10'],
-          ['Tazas blancas', '$8'],
-          ['Sopera', '$100'],
-          ['Escofier', '$50'],
-          ['Cafeteras', '$80'],
-          ['Azucareras con azúcar', '$10'],
-        ],
-      },
-      {
-        name: 'Cubiertos',
-        items: [
-          ['Cuchara, tenedor o cuchillo plateado', '$5.50 c/u'],
-          ['Cuchara, tenedor o cuchillo dorado', '$12 c/u'],
-        ],
-      },
-      {
-        name: 'Cristalería',
-        items: [
-          ['Vaso highball', '$7'],
-          ['Copa de vino', '$12'],
-          ['Copa flauta', '$12'],
-          ['Copa diamante rosa', '$15'],
-          ['Copa diamante humo', '$15'],
-          ['Jarras de cristal', '$35'],
-        ],
-      },
-      {
-        name: 'Servicio de mesa',
-        items: [
-          ['Servilleteros', '$5 · sin costo al rentar loza'],
-          ['Salseros', '$5 · sin costo al rentar loza'],
-          ['Saleros', '$5 · sin costo al rentar loza'],
-          ['Tortilleros', '$5 · sin costo al rentar loza'],
-        ],
-      },
-      {
-        name: 'Mobiliario',
-        items: [
-          ['Sillas Tiffany', '$25'],
-          ['Sillas Cross Back', '$45'],
-          ['Sillas negras acojinadas', '$10'],
-          ['Mesas vintage de madera', '$300'],
-          ['Tripié color blanco', '$100'],
-          ['Paquete de inflables', '$1,600'],
-          ['Equipo de sonido', '[por confirmar]'],
-          ['Botella de mezcal artesanal Irónico', '[por confirmar]'],
-        ],
-      },
-      {
-        name: 'Arreglos florales',
-        items: [
-          ['Arreglo floral redondo · follaje, gerberas, lisianthus y clavel', '$250'],
-          ['Arreglo floral alto · follaje, rosas, clavel y perritos', '$300'],
-          ['Arreglo para mesa principal · troncos con musgo natural, rosas, lisianthus', '$350'],
-        ],
-      },
-    ],
-  },
-
   faq: {
     eyebrow: 'Preguntas frecuentes',
     title: 'Lo que suelen preguntarnos.',
     items: [
       {
         q: '¿Cuántas horas de servicio incluye cada paquete?',
-        a: 'Siete horas en Renta del jardín, Mesa larga con mezcal Irónico y Bodas íntimas; ocho horas en Jardín servido. Las jornadas son de medio día (5 horas) o día completo (8 horas).',
+        a: 'Siete horas en Renta del jardín, Mesa larga con mezcal Irónico y Bodas petite; ocho horas en Jardín servido. Las jornadas son de medio día (5 horas) o día completo (8 horas).',
       },
       {
         q: '¿Hay un mínimo de invitados?',
-        a: 'Los paquetes de celebración son para un mínimo de 50 personas. Las bodas íntimas son de 30 a 50 personas, y las jornadas de trabajo, desde 25 personas.',
+        a: 'Los paquetes de celebración son para un mínimo de 50 personas. Las bodas petite son de 30 a 50 personas, y las jornadas de trabajo, desde 25 personas.',
       },
       {
         q: '¿Qué incluye la renta del jardín?',
@@ -606,10 +520,6 @@ export const es = {
       {
         q: '¿Cuántos baños hay?',
         a: 'Cuatro: dos de damas y dos de caballeros, con papel higiénico, jabón y toallas para manos.',
-      },
-      {
-        q: '¿Qué mobiliario puedo rentar?',
-        a: 'Mantelería de lino, loza blanca, negra y de barro, cubiertos plateados o dorados, cristalería, sillas Tiffany, Cross Back y negras acojinadas, mesas vintage de madera, arreglos florales, tripié blanco y paquete de inflables. Los precios están en el catálogo de renta.',
       },
       {
         q: '¿Cómo funciona el menú?',
@@ -636,7 +546,7 @@ export const es = {
     type: 'Tipo de celebración',
     types: [
       ['boda', 'Boda'],
-      ['boda-intima', 'Boda íntima'],
+      ['boda-petite', 'Boda petite'],
       ['familiar', 'Familiar'],
       ['jornada', 'Jornada'],
       ['otra', 'Otra'],
@@ -715,8 +625,8 @@ export const es = {
   planearPage: {
     eyebrow: 'Planear',
     title: 'Todo lo que necesitas para planear.',
-    intro: 'Paquetes, servicios incluidos, menú, mobiliario y respuestas a las preguntas frecuentes. Si algo no está aquí, pregúntanos.',
-    toc: ['Capacidades', 'Paquetes', 'Menú', 'Mobiliario', 'Preguntas'],
+    intro: 'Paquetes, servicios incluidos, menú y respuestas a las preguntas frecuentes. Si algo no está aquí, pregúntanos.',
+    toc: ['Capacidades', 'Paquetes', 'Menú', 'Preguntas'],
     includedTitle: 'Incluido en todos los paquetes',
   },
 

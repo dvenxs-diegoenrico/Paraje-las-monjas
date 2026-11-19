@@ -4,8 +4,7 @@ import { FactCards, HowItWorks } from '@/components/content/Graphics';
 import { Icon, type IconName } from '@/components/base/Icon';
 
 const COURSE_ICON: IconName[] = ['crema', 'pasta', 'plato', 'ensalada'];
-const TOC_ICON: IconName[] = ['personas', 'mesa', 'plato', 'silla', 'chat'];
-const GROUP_ICON: IconName[] = ['mantel', 'plato', 'plato', 'copa', 'mesa', 'silla', 'flor'];
+const TOC_ICON: IconName[] = ['personas', 'mesa', 'plato', 'chat'];
 import { OfferCard } from '@/components/content/OfferCard';
 import { PageHero } from '@/components/content/PageHero';
 import { ScaleTabs } from '@/components/content/ScaleTabs';
@@ -17,7 +16,7 @@ import type { Locale } from '@/lib/i18n';
 import { images } from '@/lib/images';
 import { faqJsonLd } from '@/lib/seo';
 
-const anchors = ['capacidades', 'paquetes', 'menu', 'mobiliario', 'preguntas'];
+const anchors = ['capacidades', 'paquetes', 'menu', 'preguntas'];
 
 export function PlanearPage({ locale }: { locale: Locale }) {
   const c = getContent(locale);
@@ -138,36 +137,6 @@ export function PlanearPage({ locale }: { locale: Locale }) {
               </ul>
               <p className="t-caption mt-4 text-piedra/70">{c.pricesNote}</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mobiliario */}
-      <section id="mobiliario" className="tex-cal relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby="mob-t">
-        <div className="container-lux">
-          <hr className="junta mb-16" />
-          <Eyebrow icon="silla">{c.catalogue.eyebrow}</Eyebrow>
-          <h2 id="mob-t" className="t-h2 mt-6 max-w-[20ch]">
-            {c.catalogue.title}
-          </h2>
-          <p className="t-caption mt-4 text-piedra/70">{c.catalogue.note}</p>
-          <div className="mt-12 columns-1 gap-x-10 md:columns-2 lg:columns-3">
-            {c.catalogue.groups.map((g, gi) => (
-              <div key={g.name} className="group mb-10 break-inside-avoid">
-                <h3 className="t-h3 flex items-center gap-3">
-                  <Icon name={GROUP_ICON[gi] ?? 'hoja'} size={24} className="text-tabique" />
-                  {g.name}
-                </h3>
-                <dl className="mt-3">
-                  {g.items.map(([k, v]) => (
-                    <div key={k} className="flex items-baseline justify-between gap-4 border-t border-cantera/30 py-2">
-                      <dt className="text-[15px]">{k}</dt>
-                      <dd className="t-data shrink-0 text-tabique">{v}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            ))}
           </div>
         </div>
       </section>

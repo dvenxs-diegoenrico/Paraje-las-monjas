@@ -7,7 +7,7 @@ import { Reveal } from '@/components/motion/Reveal';
 import { getContent } from '@/content';
 import { Icon, type IconName } from '@/components/base/Icon';
 
-const KIND_ICON: Record<string, IconName> = { bodas: 'brindis', 'bodas-intimas': 'mesa', familia: 'personas', jornadas: 'proyector' };
+const KIND_ICON: Record<string, IconName> = { bodas: 'brindis', 'bodas-petite': 'mesa', familia: 'personas', jornadas: 'proyector' };
 import type { Locale } from '@/lib/i18n';
 import { images, type ImageKey } from '@/lib/images';
 

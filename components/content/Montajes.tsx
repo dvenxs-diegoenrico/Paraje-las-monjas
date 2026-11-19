@@ -48,7 +48,7 @@ export function Montajes({ locale, c }: { locale: Locale; c: Content }) {
                   </div>
                 ))}
               </dl>
-              <Link href={href(locale, 'planear', 'paquete-bodas-intimas')} className="link-grow t-nav mt-4 inline-flex min-h-[44px] items-center">
+              <Link href={href(locale, 'planear', 'paquete-bodas-petite')} className="link-grow t-nav mt-4 inline-flex min-h-[44px] items-center">
                 {c.celebraciones.seeOffer}
               </Link>
             </div>

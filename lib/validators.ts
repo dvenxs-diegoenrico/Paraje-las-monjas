@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const CELEBRATION_TYPES = ['boda', 'boda-intima', 'familiar', 'jornada', 'otra'] as const;
+export const CELEBRATION_TYPES = ['boda', 'boda-petite', 'familiar', 'jornada', 'otra'] as const;
 export const BUDGETS = ['lt-25', '25-50', '50-100', '100-250', '250-plus', 'undecided'] as const;
 export const VISIT_PREFS = ['entre-semana', 'sabado', 'sin-preferencia'] as const;
 

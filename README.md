@@ -138,7 +138,6 @@ Without the Resend variables the form **fails safely**: it validates, then tells
 | Visiting hours | footer, `/visita` |
 | Capacity per space / maximums | capacity footnote, FAQ |
 | Legal name (razón social) and privacy contact email | `/aviso-de-privacidad` |
-| Price of sound system and of the Irónico bottle | rental catalogue on `/planear` |
 | Exact Facebook page URL | `lib/site.ts` (currently a search link) |
 | Night photography | gallery chapter *Noche* |
 | Budget ranges in the inquiry form | `form.budgets` |

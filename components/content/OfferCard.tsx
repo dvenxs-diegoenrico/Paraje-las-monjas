@@ -2,7 +2,7 @@ import { formatPrice, priceFrom, type Content } from '@/content';
 import { Icon, type IconName } from '@/components/base/Icon';
 import { IconList, iconFor } from '@/components/content/Graphics';
 
-const OFFER_ICON: Record<string, IconName> = { 'renta-del-jardin': 'arbol', 'jardin-servido': 'plato', 'mesa-larga-ironico': 'mezcal', 'bodas-intimas': 'brindis', jornadas: 'cafe' };
+const OFFER_ICON: Record<string, IconName> = { 'renta-del-jardin': 'arbol', 'jardin-servido': 'plato', 'mesa-larga-ironico': 'mezcal', 'bodas-petite': 'brindis', jornadas: 'cafe' };
 
 type Offer = Content['offers']['items'][number];
 
