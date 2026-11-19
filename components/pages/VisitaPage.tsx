@@ -15,7 +15,7 @@ export function VisitaPage({ locale }: { locale: Locale }) {
   return (
     <>
       <PageHero locale={locale} eyebrow={p.eyebrow} title={p.title} intro={p.intro} backWord={locale === 'es' ? 'visita' : 'visit'} photo={images.arboladoFuente} />
-      <section className="bg-cal pb-24" aria-labelledby="como-visita">
+      <section className="tex-cal bg-cal pb-24" aria-labelledby="como-visita">
         <div className="container-lux">
           <h2 id="como-visita" className="t-eyebrow mb-12 text-tabique">
             {c.howItWorks.eyebrow}
@@ -23,7 +23,7 @@ export function VisitaPage({ locale }: { locale: Locale }) {
           <HowItWorks c={c.howItWorks} />
         </div>
       </section>
-      <section className="on-dark grain relative overflow-hidden bg-fronda py-24 text-cal lg:py-32" aria-label={c.form.title}>
+      <section className="tex-fronda on-dark grain relative overflow-hidden bg-fronda py-24 text-cal lg:py-32" aria-label={c.form.title}>
         <div className="bricks pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden="true" />
         <div className="container-lux grid-lux relative gap-y-16">
           <div className="col-span-4 md:col-span-8 lg:col-span-7">
@@ -40,7 +40,7 @@ export function VisitaPage({ locale }: { locale: Locale }) {
           </aside>
         </div>
       </section>
-      <section className="relative bg-cal py-24 lg:py-32" aria-labelledby="contacto">
+      <section className="tex-cal relative bg-cal py-24 lg:py-32" aria-labelledby="contacto">
         <div className="container-lux grid-lux gap-y-12">
           <div className="col-span-4 md:col-span-4 lg:col-span-5">
             <h2 id="contacto" className="t-h2">

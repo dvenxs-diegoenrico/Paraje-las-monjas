@@ -11,7 +11,7 @@ import type { Content } from '@/content';
 export function VisitCTA({ locale, c, id = 'visita-privada' }: { locale: Locale; c: Content; id?: string }) {
   const v = c.visit;
   return (
-    <section id={id} className="on-dark grain relative overflow-hidden bg-fronda py-28 text-cal lg:py-40" aria-labelledby={`${id}-title`}>
+    <section id={id} className="tex-fronda on-dark grain relative overflow-hidden bg-fronda py-28 text-cal lg:py-40" aria-labelledby={`${id}-title`}>
       <div className="bricks pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden="true" />
       <div className="container-lux grid-lux relative gap-y-16">
         <div className="col-span-4 md:col-span-8 lg:col-span-4">

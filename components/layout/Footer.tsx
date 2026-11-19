@@ -10,7 +10,7 @@ const LINKS: RouteKey[] = ['lugar', 'celebraciones', 'planear', 'galeria', 'visi
 export function Footer({ locale, c }: { locale: Locale; c: Content }) {
   const f = c.footer;
   return (
-    <footer className="on-dark grain relative mt-0 overflow-hidden bg-piedra pb-28 text-cal lg:pb-0">
+    <footer className="tex-piedra on-dark grain relative mt-0 overflow-hidden bg-piedra pb-28 text-cal lg:pb-0">
       <div className="bricks pointer-events-none absolute inset-0 opacity-[0.07]" aria-hidden="true" />
       <div className="container-lux relative pt-24 pb-12 lg:pt-32">
         <div className="grid-lux gap-y-16">

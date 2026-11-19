@@ -11,7 +11,7 @@ export function OfferCard({ offer, c, open = false, anchor, surface = 'claro' }:
   const min = Math.min(...offer.variants.map((v) => v.price));
   const shared = 'sharedIncludes' in offer ? offer.sharedIncludes : undefined;
   return (
-    <article className={`shadow-lux relative scroll-mt-24 p-6 md:p-8 ${surface === 'cal' ? 'bg-cal' : 'bg-cal-claro'}`} id={anchor ? `paquete-${offer.id}` : undefined}>
+    <article className={`shadow-lux relative scroll-mt-24 p-6 md:p-8 ${surface === 'cal' ? 'tex-cal bg-cal' : 'tex-claro bg-cal-claro'}`} id={anchor ? `paquete-${offer.id}` : undefined}>
       <div className="group flex flex-wrap items-center justify-between gap-4">
         <h3 className="flex items-center gap-4 font-serif text-[30px] leading-tight lg:text-[36px]">
           <span className="live grid h-12 w-12 shrink-0 place-items-center rounded-full bg-fronda text-cal">

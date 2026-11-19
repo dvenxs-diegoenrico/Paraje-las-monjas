@@ -4,7 +4,7 @@ import type { Locale } from '@/lib/i18n';
 export function PrivacidadPage({ locale }: { locale: Locale }) {
   const c = getContent(locale).privacidad;
   return (
-    <section className="bg-cal pb-28 pt-[calc(var(--header-h)+64px)] lg:pb-40">
+    <section className="tex-cal bg-cal pb-28 pt-[calc(var(--header-h)+64px)] lg:pb-40">
       <div className="container-lux grid-lux">
         <div className="col-span-4 md:col-span-8 lg:col-span-7 lg:col-start-3">
           <h1 className="t-display">{c.title}</h1>

@@ -17,7 +17,7 @@ const MANIFESTO_ICONS: IconName[] = ['arco', 'ladrillo', 'pabellon', 'catarina',
 /* ---------------------------------------------------------------- 2 */
 export function Manifesto({ c }: { c: Content['home']['manifesto'] }) {
   return (
-    <section className="relative bg-cal py-28 lg:py-44" aria-labelledby="manifiesto">
+    <section className="tex-cal relative bg-cal py-28 lg:py-44" aria-labelledby="manifiesto">
       <div className="container-lux grid-lux">
         <div className="col-span-4 md:col-span-8 lg:col-span-2">
           <Reveal>
@@ -46,7 +46,7 @@ export function Manifesto({ c }: { c: Content['home']['manifesto'] }) {
 export function SpacesShowcase({ locale, c, spaces, groups }: { locale: Locale; c: Content['home']['lugar']; spaces: Content['spaces']; groups: Content['spacesGroups'] }) {
   const [first, ...rest] = spaces;
   return (
-    <section className="relative bg-cal pb-28 lg:pb-40" aria-labelledby="el-lugar">
+    <section className="tex-cal relative bg-cal pb-28 lg:pb-40" aria-labelledby="el-lugar">
       <div className="container-lux">
         <div className="grid-lux items-end gap-y-6">
           <div className="col-span-4 md:col-span-6 lg:col-span-7">
@@ -110,7 +110,7 @@ export function EditorialTriptych({ locale, c }: { locale: Locale; c: Content['h
   const land = images.pradera;
   const port = images.mesaMadera;
   return (
-    <section className="relative bg-cal pb-28 lg:pb-44" aria-labelledby="editorial">
+    <section className="tex-cal relative bg-cal pb-28 lg:pb-44" aria-labelledby="editorial">
       <figure>
         <div className="relative aspect-[4/5] w-full md:aspect-[21/9]">
           <Unveil className="h-full w-full">
@@ -163,7 +163,7 @@ export function GalleryMosaic({ locale, c }: { locale: Locale; c: Content['home'
     { key: 'praderaSetos', cls: 'col-span-4 md:col-span-8 lg:col-span-8 lg:col-start-3', ratio: '16:9' },
   ];
   return (
-    <section className="relative bg-cal py-28 lg:py-40" aria-labelledby="galeria-home">
+    <section className="tex-cal relative bg-cal py-28 lg:py-40" aria-labelledby="galeria-home">
       <div className="container-lux">
         <div className="grid-lux items-end gap-y-6">
           <div className="col-span-4 md:col-span-6 lg:col-span-8">
@@ -196,7 +196,7 @@ export function GalleryMosaic({ locale, c }: { locale: Locale; c: Content['home'
 /* ---------------------------------------------------------------- 8 */
 export function Philosophy({ c }: { c: Content['home']['filosofia'] }) {
   return (
-    <section className="on-dark grain relative overflow-hidden bg-piedra py-28 text-cal lg:py-44" aria-labelledby="filosofia">
+    <section className="tex-piedra on-dark grain relative overflow-hidden bg-piedra py-28 text-cal lg:py-44" aria-labelledby="filosofia">
       <div className="container-lux grid-lux items-center gap-y-14">
         <Reveal className="col-span-2 md:col-span-3 lg:col-span-4 lg:col-start-2" duration={1.2}>
           <div className="live relative">

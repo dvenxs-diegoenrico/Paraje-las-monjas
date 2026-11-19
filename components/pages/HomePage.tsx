@@ -26,7 +26,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       <EditorialTriptych locale={locale} c={h.editorial} />
 
       {/* 5 · Adentro y afuera */}
-      <section className="on-dark relative bg-fronda py-28 text-cal lg:py-40" aria-labelledby="adentro">
+      <section className="tex-fronda on-dark relative bg-fronda py-28 text-cal lg:py-40" aria-labelledby="adentro">
         <div className="container-lux grid-lux items-center gap-y-14">
           <div className="col-span-4 md:col-span-8 lg:col-span-4">
             <Reveal>
@@ -66,7 +66,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       {/* 6 · Capacidades */}
-      <section className="relative bg-cal py-28 lg:py-40" aria-labelledby="capacidades">
+      <section className="tex-cal relative bg-cal py-28 lg:py-40" aria-labelledby="capacidades">
         <div className="container-lux grid-lux gap-y-14">
           <div className="col-span-4 md:col-span-8 lg:col-span-4">
             <Reveal>
@@ -95,7 +95,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       </section>
 
       {/* Cómo funciona */}
-      <section className="relative bg-cal pb-28 lg:pb-36" aria-labelledby="como">
+      <section className="tex-cal relative bg-cal pb-28 lg:pb-36" aria-labelledby="como">
         <div className="container-lux">
           <hr className="junta mb-16" />
           <Reveal>

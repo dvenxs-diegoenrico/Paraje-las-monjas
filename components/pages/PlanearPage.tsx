@@ -42,7 +42,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       </nav>
 
       {/* Proceso */}
-      <section className="py-20 lg:py-28" aria-labelledby="proceso-t">
+      <section className="tex-cal py-20 lg:py-28" aria-labelledby="proceso-t">
         <div className="container-lux">
           <Eyebrow icon="catarina">{c.howItWorks.eyebrow}</Eyebrow>
           <h2 id="proceso-t" className="t-h2 mt-6 max-w-[20ch]">
@@ -55,7 +55,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       </section>
 
       {/* Capacidades */}
-      <section id="capacidades" className="scroll-mt-24 py-20 lg:py-28" aria-labelledby="cap-t">
+      <section id="capacidades" className="tex-cal scroll-mt-24 py-20 lg:py-28" aria-labelledby="cap-t">
         <div className="container-lux grid-lux gap-y-12">
           <div className="col-span-4 md:col-span-8 lg:col-span-4">
             <Eyebrow icon="personas">{h.eyebrow}</Eyebrow>
@@ -75,7 +75,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       </section>
 
       {/* Paquetes */}
-      <section id="paquetes" className="relative scroll-mt-24 bg-cal-claro py-20 lg:py-28" aria-labelledby="paq-t">
+      <section id="paquetes" className="tex-claro relative scroll-mt-24 bg-cal-claro py-20 lg:py-28" aria-labelledby="paq-t">
         <div className="container-lux">
           <Eyebrow icon="mesa">{c.offers.eyebrow}</Eyebrow>
           <h2 id="paq-t" className="t-h2 mt-6">
@@ -92,7 +92,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       </section>
 
       {/* Menú */}
-      <section id="menu" className="relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby="menu-t">
+      <section id="menu" className="tex-cal relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby="menu-t">
         <div className="container-lux grid-lux gap-y-12">
           <div className="col-span-4 md:col-span-3 lg:col-span-4">
             <Eyebrow icon="plato">{c.menu.eyebrow}</Eyebrow>
@@ -143,7 +143,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       </section>
 
       {/* Mobiliario */}
-      <section id="mobiliario" className="relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby="mob-t">
+      <section id="mobiliario" className="tex-cal relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby="mob-t">
         <div className="container-lux">
           <hr className="junta mb-16" />
           <Eyebrow icon="silla">{c.catalogue.eyebrow}</Eyebrow>
@@ -173,7 +173,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
       </section>
 
       {/* Preguntas */}
-      <section id="preguntas" className="scroll-mt-24 bg-cal pb-28 pt-10 lg:pb-36" aria-labelledby="faq-t">
+      <section id="preguntas" className="tex-cal scroll-mt-24 bg-cal pb-28 pt-10 lg:pb-36" aria-labelledby="faq-t">
         <div className="container-lux grid-lux gap-y-10">
           <div className="col-span-4 md:col-span-8 lg:col-span-4">
             <Eyebrow icon="chat">{c.faq.eyebrow}</Eyebrow>

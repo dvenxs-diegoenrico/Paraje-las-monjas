@@ -31,7 +31,7 @@ export function CelebracionesPage({ locale }: { locale: Locale }) {
         </ul>
       </nav>
       {p.kinds.map((k, i) => (
-        <section key={k.id} id={k.id} className="scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby={`${k.id}-t`}>
+        <section key={k.id} id={k.id} className="tex-cal scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby={`${k.id}-t`}>
           <div className="container-lux grid-lux gap-y-12">
             <div className="col-span-4 md:col-span-3 lg:col-span-4">
               <div className="lg:sticky lg:top-28">

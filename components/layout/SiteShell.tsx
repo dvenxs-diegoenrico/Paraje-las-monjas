@@ -24,6 +24,11 @@ const newsreader = Newsreader({
 const hanken = Hanken_Grotesk({ subsets: ['latin'], weight: 'variable', display: 'swap', variable: '--font-hanken' });
 const dmMono = DM_Mono({ subsets: ['latin'], weight: ['400', '500'], display: 'swap', variable: '--font-dm-mono', preload: false });
 
+// Preview switch for the natural textures: ?texturas=1 turns them on for this
+// browser session (?texturas=0 turns them off). Set TEXTURES_DEFAULT to true to ship them.
+const TEXTURES_DEFAULT = false;
+const TEX_SCRIPT = `(function(d){d.classList.add('js');var on=${TEXTURES_DEFAULT};try{var q=new URLSearchParams(location.search).get('texturas');if(q!==null)sessionStorage.setItem('texturas',q);var s=sessionStorage.getItem('texturas');if(s!==null)on=s==='1';}catch(e){}if(on)d.classList.add('tex-on');})(document.documentElement)`;
+
 /** Shared root document for both language trees. */
 export function SiteShell({ locale, children }: { locale: Locale; children: ReactNode }) {
   const c = getContent(locale);
@@ -32,7 +37,7 @@ export function SiteShell({ locale, children }: { locale: Locale; children: Reac
     <html lang={c.htmlLang} suppressHydrationWarning className={`${newsreader.variable} ${hanken.variable} ${dmMono.variable}`}>
       <body className="bg-cal text-piedra">
         {/* lets CSS hide not-yet-drawn graphics only when JS will reveal them */}
-        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        <script dangerouslySetInnerHTML={{ __html: TEX_SCRIPT }} />
         <a href="#contenido" className="t-nav fixed left-4 top-4 z-[60] -translate-y-24 bg-piedra px-5 py-4 text-cal transition-transform focus:translate-y-0">
           {c.a11y.skip}
         </a>

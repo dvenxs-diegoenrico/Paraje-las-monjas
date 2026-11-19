@@ -16,7 +16,7 @@ export function Montajes({ locale, c }: { locale: Locale; c: Content }) {
     ['service', 'service'],
   ];
   return (
-    <section id="montajes" className="scroll-mt-24 bg-cal-claro py-24 lg:py-36" aria-labelledby="montajes-t">
+    <section id="montajes" className="tex-claro scroll-mt-24 bg-cal-claro py-24 lg:py-36" aria-labelledby="montajes-t">
       <div className="container-lux">
         <Reveal>
           <Eyebrow icon="mesa">{m.eyebrow}</Eyebrow>
@@ -63,7 +63,7 @@ export function Montajes({ locale, c }: { locale: Locale; c: Content }) {
 export function Credits({ c }: { c: Content }) {
   const p = c.partners;
   return (
-    <section className="bg-cal py-20 lg:py-28" aria-labelledby="creditos-t">
+    <section className="tex-cal bg-cal py-20 lg:py-28" aria-labelledby="creditos-t">
       <div className="container-lux grid-lux gap-y-8">
         <div className="col-span-4 md:col-span-8 lg:col-span-5">
           <Eyebrow icon="mezcal">{p.eyebrow}</Eyebrow>

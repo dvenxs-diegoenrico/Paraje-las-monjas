@@ -58,7 +58,7 @@ export function FactCards({ facts, dark = false }: { facts: Content['facts']; da
   return (
     <ul data-observe="" className="stagger shadow-lux grid grid-cols-2 gap-px overflow-hidden bg-cantera/40 md:grid-cols-3 lg:grid-cols-5 [&>li:last-child]:col-span-2 md:[&>li:last-child]:col-span-1">
       {facts.map((f) => (
-        <li key={f.k} className={`group flex flex-col gap-4 p-5 lg:p-6 ${dark ? 'bg-piedra' : 'bg-cal'}`}>
+        <li key={f.k} className={`group flex flex-col gap-4 p-5 lg:p-6 ${dark ? 'tex-piedra bg-piedra' : 'tex-cal bg-cal'}`}>
           <span className={`grid h-12 w-12 place-items-center rounded-full ${dark ? 'bg-cal/10 text-cal' : 'bg-cal-claro text-fronda'}`}>
             <Icon name={f.icon} size={26} />
           </span>
@@ -101,7 +101,7 @@ export function HowItWorks({ c }: { c: Content['howItWorks'] }) {
 /* ------------------------------------------------------------ the four spaces, grouped */
 function SpaceGroup({ title, list, icon, base }: { title: string; list: Content['spaces']; icon: IconName; base: string }) {
   return (
-    <div className="shadow-lux relative flex-1 border border-cantera/50 bg-cal-claro p-5 lg:p-6">
+    <div className="tex-claro shadow-lux relative flex-1 border border-cantera/50 bg-cal-claro p-5 lg:p-6">
       <p className="t-eyebrow flex items-center gap-2 text-tabique">
         <Icon name={icon} size={18} /> {title}
       </p>

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./textures.css";
 
 /* ------------------------------------------------------------------
    Paraje Las Monjas · design tokens
@@ -460,3 +461,6 @@ img {
 /* marching dashes for connectors */
 .icon-dash { animation: dash-march 1.6s linear infinite; }
 @keyframes dash-march { to { stroke-dashoffset: -12; } }
+
+/* when the natural textures are on they replace the film grain */
+.tex-on .grain::after { display: none; }

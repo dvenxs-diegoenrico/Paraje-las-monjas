@@ -27,7 +27,7 @@ export function LugarPage({ locale }: { locale: Locale }) {
       {c.spaces.map((s, i) => {
         const flip = i % 2 === 1;
         return (
-          <section key={s.id} id={s.id} className="relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby={`${s.id}-t`}>
+          <section key={s.id} id={s.id} className="tex-cal relative scroll-mt-24 bg-cal py-20 lg:py-28" aria-labelledby={`${s.id}-t`}>
             <div className="container-lux">
               <hr className="junta mb-16 lg:mb-24" />
               <div className="grid-lux items-center gap-y-12">
@@ -62,7 +62,7 @@ export function LugarPage({ locale }: { locale: Locale }) {
         );
       })}
 
-      <section className="on-dark grain relative overflow-hidden bg-piedra py-28 text-cal lg:py-40" aria-labelledby="materiales">
+      <section className="tex-piedra on-dark grain relative overflow-hidden bg-piedra py-28 text-cal lg:py-40" aria-labelledby="materiales">
         <div className="container-lux">
           <Reveal>
             <Eyebrow tone="cantera" icon="ladrillo">{c.materials.eyebrow}</Eyebrow>
@@ -86,7 +86,7 @@ export function LugarPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="relative bg-cal py-28 lg:py-36" aria-labelledby="monjas">
+      <section className="tex-cal relative bg-cal py-28 lg:py-36" aria-labelledby="monjas">
         <div className="container-lux grid-lux items-center gap-y-10">
           <div className="col-span-1 md:col-span-2 lg:col-span-2 lg:col-start-2">
             <Mark className="w-full max-w-[140px]" />
