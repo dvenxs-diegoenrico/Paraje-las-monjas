@@ -49,7 +49,7 @@ export function CelebracionesPage({ locale }: { locale: Locale }) {
                 <Reveal delay={0.1} as="p" className="mt-6 text-piedra/85">
                   {k.text}
                 </Reveal>
-                <div className="mt-10 w-2/3 max-w-[300px]">
+                <div className="mt-10 w-full md:w-2/3 md:max-w-[300px]">
                   <ScallopImage photo={images[k.image as ImageKey]} locale={locale} shape={i % 2 ? 'rect' : 'arch'} ratio="3:4" sizes="25vw" density={0.8} />
                 </div>
               </div>

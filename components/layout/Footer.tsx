@@ -33,19 +33,19 @@ export function Footer({ locale, c }: { locale: Locale; c: Content }) {
             <p className="t-eyebrow text-cantera">{f.contactLabel}</p>
             <ul className="t-data mt-4 flex flex-col gap-3">
               <li>
-                <a href={whatsappLink(c.whatsappMessage)} target="_blank" rel="noopener" className="group inline-flex items-center gap-2">
+                <a href={whatsappLink(c.whatsappMessage)} target="_blank" rel="noopener" className="group inline-flex min-h-[44px] items-center gap-2">
                   <Icon name="chat" size={18} className="text-cantera" />
                   <span className="link-grow">WhatsApp {WHATSAPP_DISPLAY}</span>
                 </a>
               </li>
               <li>
-                <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="group inline-flex items-center gap-2">
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="group inline-flex min-h-[44px] items-center gap-2">
                   <Icon name="camara" size={18} className="text-cantera" />
                   <span className="link-grow">Instagram {INSTAGRAM_HANDLE}</span>
                 </a>
               </li>
               <li>
-                <a href={FACEBOOK_URL} target="_blank" rel="noopener" className="group inline-flex items-center gap-2">
+                <a href={FACEBOOK_URL} target="_blank" rel="noopener" className="group inline-flex min-h-[44px] items-center gap-2">
                   <Icon name="personas" size={18} className="text-cantera" />
                   <span className="link-grow">Facebook · {FACEBOOK_NAME}</span>
                 </a>
@@ -72,7 +72,7 @@ export function Footer({ locale, c }: { locale: Locale; c: Content }) {
           <p>
             © {new Date().getFullYear()} {f.rights} · {c.meta.descriptor}
           </p>
-          <Link href={href(locale, 'privacidad')} className="link-grow self-start">
+          <Link href={href(locale, 'privacidad')} className="link-grow inline-flex min-h-[44px] items-center self-start">
             {f.privacy}
           </Link>
         </div>

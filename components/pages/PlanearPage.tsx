@@ -99,7 +99,7 @@ export function PlanearPage({ locale }: { locale: Locale }) {
               {c.menu.title}
             </h2>
             <p className="mt-6 text-piedra/85">{c.menu.intro}</p>
-            <div className="mt-10 w-2/3 max-w-[280px]">
+            <div className="mt-10 w-full md:w-2/3 md:max-w-[280px]">
               <ScallopImage photo={images.platillo} locale={locale} shape="arch" ratio="3:4" sizes="25vw" density={0.8} />
             </div>
           </div>

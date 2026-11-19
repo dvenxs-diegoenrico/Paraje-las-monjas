@@ -74,7 +74,7 @@ export function Hero({ locale, c }: { locale: Locale; c: Content['home']['hero']
                 <Image src={inset.src} width={inset.width} height={inset.height} alt={inset.alt[locale]} priority sizes="(min-width:1024px) 30vw, 64vw" placeholder="blur" blurDataURL={inset.blurDataURL} className="h-full w-full object-cover" />
               </div>
             </div>
-            <p className="t-caption mt-3 text-right text-cal/85">{inset.caption[locale]}</p>
+            <p className="t-caption mt-3 hidden text-right text-cal/85 lg:block">{inset.caption[locale]}</p>
           </m.div>
 
           {/* PLANE 3 · headline + actions */}

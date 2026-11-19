@@ -79,15 +79,17 @@ export function HowItWorks({ c }: { c: Content['howItWorks'] }) {
         <svg aria-hidden="true" className="pointer-events-none absolute left-0 top-[84px] hidden h-10 w-full lg:block" viewBox="0 0 1000 40" preserveAspectRatio="none">
           <path d="M100 20 C 200 0, 300 40, 500 20 S 800 0, 900 20" fill="none" stroke="var(--cantera)" strokeWidth="1.25" pathLength={1} className="line-draw" vectorEffect="non-scaling-stroke" />
         </svg>
-        <ol className="stagger relative grid gap-12 md:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+        <ol className="stagger relative grid gap-10 md:grid-cols-2 lg:grid-cols-5 lg:gap-6">
           {c.steps.map((s, i) => (
-            <li key={s.t} className="group relative flex flex-col items-start gap-4 lg:items-center lg:text-center">
-              <span aria-hidden="true" className="font-serif text-[64px] font-light leading-none tracking-[-0.03em] text-cantera">
-                0{i + 1}
-              </span>
-              <span className="live relative grid h-14 w-14 place-items-center rounded-full bg-cal-claro text-fronda shadow-lux ring-1 ring-cantera/60">
-                <Icon name={s.icon} size={28} />
-              </span>
+            <li key={s.t} className="group relative flex flex-col items-start gap-3 lg:items-center lg:gap-4 lg:text-center">
+              <div className="flex items-center gap-4 lg:flex-col">
+                <span aria-hidden="true" className="font-serif text-[44px] font-light leading-none tracking-[-0.03em] text-cantera lg:text-[64px]">
+                  0{i + 1}
+                </span>
+                <span className="live relative grid h-12 w-12 place-items-center rounded-full bg-cal-claro text-fronda shadow-lux ring-1 ring-cantera/60 lg:h-14 lg:w-14">
+                  <Icon name={s.icon} size={26} />
+                </span>
+              </div>
               <h3 className="font-serif text-[26px] leading-tight">{s.t}</h3>
               <p className="max-w-[28ch] text-[15px] text-piedra/80">{s.d}</p>
             </li>

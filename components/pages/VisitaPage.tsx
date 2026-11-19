@@ -58,15 +58,15 @@ export function VisitaPage({ locale }: { locale: Locale }) {
                   <dt className="t-data text-tabique">{k}</dt>
                   <dd className="t-data">
                     {k === 'WhatsApp' ? (
-                      <a className="link-grow" href={whatsappLink(c.whatsappMessage)} target="_blank" rel="noopener">
+                      <a className="link-grow inline-flex min-h-[44px] items-center" href={whatsappLink(c.whatsappMessage)} target="_blank" rel="noopener">
                         {v}
                       </a>
                     ) : k === 'Instagram' ? (
-                      <a className="link-grow" href={INSTAGRAM_URL} target="_blank" rel="noopener">
+                      <a className="link-grow inline-flex min-h-[44px] items-center" href={INSTAGRAM_URL} target="_blank" rel="noopener">
                         {v}
                       </a>
                     ) : k === 'Facebook' ? (
-                      <a className="link-grow" href={FACEBOOK_URL} target="_blank" rel="noopener">
+                      <a className="link-grow inline-flex min-h-[44px] items-center" href={FACEBOOK_URL} target="_blank" rel="noopener">
                         {v}
                       </a>
                     ) : (

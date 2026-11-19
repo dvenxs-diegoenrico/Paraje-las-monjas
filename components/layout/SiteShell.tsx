@@ -26,7 +26,7 @@ const dmMono = DM_Mono({ subsets: ['latin'], weight: ['400', '500'], display: 's
 
 // Preview switch for the natural textures: ?texturas=1 turns them on for this
 // browser session (?texturas=0 turns them off). Set TEXTURES_DEFAULT to true to ship them.
-const TEXTURES_DEFAULT = false;
+const TEXTURES_DEFAULT = true;
 const TEX_SCRIPT = `(function(d){d.classList.add('js');var on=${TEXTURES_DEFAULT};try{var q=new URLSearchParams(location.search).get('texturas');if(q!==null)sessionStorage.setItem('texturas',q);var s=sessionStorage.getItem('texturas');if(s!==null)on=s==='1';}catch(e){}if(on)d.classList.add('tex-on');})(document.documentElement)`;
 
 /** Shared root document for both language trees. */

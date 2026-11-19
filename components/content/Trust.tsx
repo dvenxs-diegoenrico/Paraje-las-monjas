@@ -26,14 +26,14 @@ export function TrustBar({ c }: { c: Pick<Content, 'trust' | 'press'> }) {
           </div>
         )}
         <Eyebrow icon="escudo">{c.trust.eyebrow}</Eyebrow>
-        <ul data-observe="" className="stagger mt-8 grid gap-px bg-cantera/40 shadow-lux md:grid-cols-2 lg:grid-cols-4">
+        <ul data-observe="" className="stagger mt-8 grid grid-cols-2 gap-px bg-cantera/40 shadow-lux lg:grid-cols-4">
           {c.trust.items.map((it) => (
-            <li key={it.t} className="tex-claro group flex flex-col gap-4 bg-cal-claro p-6 lg:p-8">
+            <li key={it.t} className="tex-claro group flex flex-col gap-3 bg-cal-claro p-4 md:p-6 lg:gap-4 lg:p-8">
               <span className="grid h-12 w-12 place-items-center rounded-full bg-cal text-fronda shadow-lux">
                 <Icon name={it.icon} size={26} />
               </span>
-              <h3 className="font-serif text-[24px] leading-tight">{it.t}</h3>
-              <p className="text-[15px] leading-snug text-piedra/80">{it.d}</p>
+              <h3 className="font-serif text-[19px] leading-tight md:text-[24px]">{it.t}</h3>
+              <p className="text-[14px] leading-snug text-piedra/80 md:text-[15px]">{it.d}</p>
             </li>
           ))}
         </ul>

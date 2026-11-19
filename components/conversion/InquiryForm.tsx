@@ -159,7 +159,7 @@ export function InquiryForm({ locale, c, turnstileSiteKey, tone = 'dark' }: { lo
           {pending ? c.sending : c.submit}
         </Button>
         <p className={`t-caption max-w-[34ch] ${onDark ? 'text-cal/70' : 'text-piedra/70'}`}>
-          <Link href={href(locale, 'privacidad')} className="link-grow">
+          <Link href={href(locale, 'privacidad')} className="link-grow inline-flex min-h-[44px] items-center">
             {c.privacy}
           </Link>
         </p>

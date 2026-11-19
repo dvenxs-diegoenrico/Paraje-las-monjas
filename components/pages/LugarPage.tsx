@@ -52,7 +52,7 @@ export function LugarPage({ locale }: { locale: Locale }) {
                   <Reveal delay={0.3} as="p" className="measure mt-6 text-piedra/85">
                     {s.body}
                   </Reveal>
-                  <div className="mt-10 w-1/2 max-w-[220px]">
+                  <div className="mt-10 hidden w-1/2 max-w-[220px] md:block">
                     <ScallopImage photo={images[extra[s.id]]} locale={locale} shape="rect" ratio="3:4" sizes="20vw" density={0.6} />
                   </div>
                 </div>

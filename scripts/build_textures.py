@@ -138,6 +138,18 @@ for k in T:
 """)
 css.append(""".tex-on .tex-fronda::before { opacity: 0.55; }
 .tex-on .tex-piedra::before { opacity: 0.8; }
+/* phones: static, softer, no oversized animated layer */
+@media (max-width: 767px) {
+  .tex-on :is(.tex-cal, .tex-claro, .tex-fronda, .tex-piedra)::before {
+    inset: 0;
+    animation: none;
+    will-change: auto;
+  }
+  .tex-on .tex-cal::before { opacity: 0.55; }
+  .tex-on .tex-claro::before { opacity: 0.6; }
+  .tex-on .tex-fronda::before { opacity: 0.4; }
+  .tex-on .tex-piedra::before { opacity: 0.6; }
+}
 @media (prefers-reduced-motion: reduce) {
   .tex-on :is(.tex-cal, .tex-claro, .tex-fronda, .tex-piedra)::before { animation: none; }
 }
