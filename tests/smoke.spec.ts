@@ -115,3 +115,22 @@ test('capacity tabs are keyboard operable', async ({ page }) => {
   await expect(page.getByRole('tab', { name: '150', exact: true })).toHaveAttribute('aria-selected', 'true');
   await expect(page.getByRole('tabpanel')).toContainText('El Arbolado');
 });
+
+test('the header logo takes you back to the top', async ({ page }) => {
+  // focusing the logo also reveals the header, which hides while scrolling down
+  const logo = page.getByRole('banner').locator('a[href="/"]').first();
+  await page.goto('/');
+  await page.evaluate(() => window.scrollTo(0, 2500));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(2000);
+  await logo.focus();
+  await page.keyboard.press('Enter');
+  await expect.poll(() => page.evaluate(() => window.scrollY), { timeout: 8000 }).toBeLessThan(5);
+  await expect(page).toHaveURL(/\/$/);
+
+  await page.goto('/planear');
+  await page.evaluate(() => window.scrollTo(0, 1500));
+  await logo.focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY), { timeout: 8000 }).toBeLessThan(5);
+});

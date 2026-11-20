@@ -7,6 +7,7 @@ import { Logo } from '@/components/brand/Logo';
 import { ButtonLink } from '@/components/base/Button';
 import { LanguageSwitch } from '@/components/navigation/LanguageSwitch';
 import { MobileSheet } from '@/components/navigation/MobileSheet';
+import { scrollHomeToTop } from '@/components/navigation/scrollHomeToTop';
 import { href, type Locale, type RouteKey } from '@/lib/i18n';
 import type { Content } from '@/content';
 
@@ -45,7 +46,7 @@ export function Header({ locale, c }: { locale: Locale; c: Pick<Content, 'nav' |
           aria-hidden="true"
         />
         <div className="container-lux relative flex h-[var(--header-h)] items-center justify-between gap-6">
-          <Link href={href(locale, 'home')} className="flex min-h-[44px] items-center">
+          <Link href={href(locale, 'home')} scroll className="flex min-h-[44px] items-center" onClick={(e) => scrollHomeToTop(e, pathname, href(locale, 'home'))}>
             <Logo variant="horizontal" className="text-[17px] lg:text-[19px]" label={c.a11y.logo} />
           </Link>
           <nav aria-label={c.a11y.mainNav} className="hidden lg:block">

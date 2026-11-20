@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { AnimatePresence, useReducedMotion } from 'motion/react';
 import * as m from 'motion/react-m';
 import { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
+import { scrollHomeToTop } from '@/components/navigation/scrollHomeToTop';
 import { Logo } from '@/components/brand/Logo';
 import { ButtonA, ButtonLink } from '@/components/base/Button';
 import { href, type Locale, type RouteKey } from '@/lib/i18n';
@@ -17,6 +19,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function MobileSheet({ open, onClose, locale, c }: { open: boolean; onClose: () => void; locale: Locale; c: Pick<Content, 'nav' | 'a11y' | 'whatsappMessage'> }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const pathname = usePathname();
   useFocusTrap(ref, open, onClose);
 
   useEffect(() => {
@@ -42,7 +45,16 @@ export function MobileSheet({ open, onClose, locale, c }: { open: boolean; onClo
           transition={{ duration: 0.5, ease }}
         >
           <div className="container-lux flex h-[var(--header-h)] shrink-0 items-center justify-between">
-            <Logo variant="horizontal" className="text-[17px]" label={c.a11y.logo} />
+            <Link
+              href={href(locale, 'home')}
+              className="flex min-h-[44px] items-center"
+              onClick={(e) => {
+                onClose();
+                scrollHomeToTop(e, pathname, href(locale, 'home'));
+              }}
+            >
+              <Logo variant="horizontal" className="text-[17px]" label={c.a11y.logo} />
+            </Link>
             <button type="button" onClick={onClose} className="t-nav inline-flex min-h-[44px] min-w-[44px] items-center justify-center" data-autofocus>
               <span className="sr-only">{c.a11y.closeMenu}</span>
               <span aria-hidden="true" className="relative block h-5 w-5">
