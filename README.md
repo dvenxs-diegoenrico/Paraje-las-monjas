@@ -113,6 +113,19 @@ The mark was **traced from the client's 728 × 819 raster** (`_incoming/logo-act
 
 Rules: clear space = height of the top brick course; minimum mark 24 px, horizontal logo 140 px; no shadows, gradients, outlines or rotation.
 
+## Brand kit for the client
+
+`scripts/brand-kit/` rebuilds the full kit (logos in SVG/PDF/PNG, palette .ase/.css/.json, fonts with OFL licences, icons, textures, photos, card and Instagram templates, and the 17-page vector brand manual PDF):
+
+```bash
+K=/tmp/kit && mkdir -p $K/build   # fonts: Google Fonts OFL families in $K/src/fonts (+ static/ instances)
+python3 -I scripts/brand-kit/build_kit.py $K $K/src/fonts $K/build/icons.json
+node scripts/brand-kit/render.mjs $K/build/jobs-assets.json
+python3 -I scripts/brand-kit/build_manual.py $K && node scripts/brand-kit/render.mjs $K/build/jobs-manual.json
+```
+
+`icons.json` is produced by rendering `ICONS` from `components/base/Icon.tsx` with `react-dom/server` (see the commit that added the kit).
+
 ## Environment variables
 
 | Name | Required | Purpose |
